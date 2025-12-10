@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, BookOpen, Lightbulb, Users, Sparkles, Briefcase } from 'lucide-react';
@@ -5,6 +6,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { blogPosts, serviceProfiles, hustlerStories } from '@/lib/placeholder-data';
 import { Badge } from '@/components/ui/badge';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 const stats = [
   { value: '5+', label: 'Articles Published', Icon: BookOpen },
@@ -168,32 +176,46 @@ export default function Home() {
       {/* Services Showcase */}
       <section className="py-16 md:py-24 bg-muted/50">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold md:text-4xl">Services Showcase</h2>
+          <h2 className="text-center text-3xl font-bold md:text-4xl">Top Service Providers</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             Connect with talented freelancers, engineers, and SaaS builders ready to help you grow.
           </p>
-          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {serviceProfiles.map((profile) => (
-              <Card key={profile.id} className="text-center transition-shadow duration-300 hover:shadow-xl bg-card">
-                <CardContent className="p-6">
-                   <Image
-                    src={profile.imageUrl}
-                    alt={profile.name}
-                    width={128}
-                    height={128}
-                    className="mx-auto h-32 w-32 rounded-full object-cover"
-                    data-ai-hint={profile.imageHint}
-                  />
-                  <h3 className="font-headline mt-4 text-xl font-semibold">{profile.name}</h3>
-                  <p className="text-sm text-primary">{profile.role}</p>
-                  <p className="mt-2 text-sm text-muted-foreground">{profile.description}</p>
-                  <Button asChild variant="outline" className="mt-6">
-                    <Link href="/services">View Profile</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full mt-12"
+          >
+            <CarouselContent>
+              {serviceProfiles.map((profile) => (
+                <CarouselItem key={profile.id} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card className="text-center transition-shadow duration-300 hover:shadow-xl bg-card h-full">
+                      <CardContent className="flex flex-col items-center p-6">
+                        <Image
+                          src={profile.imageUrl}
+                          alt={profile.name}
+                          width={128}
+                          height={128}
+                          className="mx-auto h-32 w-32 rounded-full object-cover"
+                          data-ai-hint={profile.imageHint}
+                        />
+                        <h3 className="font-headline mt-4 text-xl font-semibold">{profile.name}</h3>
+                        <p className="text-sm text-primary">{profile.role}</p>
+                        <p className="mt-2 text-sm text-muted-foreground flex-1">{profile.description}</p>
+                        <Button asChild variant="outline" className="mt-6">
+                          <Link href="/services">View Profile</Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
           <div className="mt-12 text-center">
             <Button asChild variant="outline">
               <Link href="/services">Explore All Services</Link>
@@ -201,7 +223,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
 
       {/* Testimonials Section */}
       <section className="py-16 md:py-24">
