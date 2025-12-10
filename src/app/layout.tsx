@@ -28,6 +28,12 @@ export const metadata: Metadata = {
     template: '%s | Hustlerspoint!',
   },
   description: 'A creator platform for writers, founders, and learners to share powerful insights and grow an audience.',
+  manifest: '/manifest.webmanifest',
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
   openGraph: {
     title: 'Hustlerspoint!',
     description: 'A creator platform for writers, founders, and learners to share powerful insights and grow an audience.',
