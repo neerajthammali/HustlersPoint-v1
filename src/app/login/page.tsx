@@ -32,8 +32,10 @@ export default function LoginPage() {
             try {
                 await signInWithPopup(auth, provider);
                 router.push('/');
-            } catch (error) {
-                console.error('Error signing in with Google: ', error);
+            } catch (error: any) {
+                if (error.code !== 'auth/popup-closed-by-user') {
+                    console.error('Error signing in with Google: ', error);
+                }
             }
         }
     };
