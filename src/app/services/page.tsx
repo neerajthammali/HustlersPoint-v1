@@ -19,7 +19,7 @@ export default function ServicesPage() {
         <Card key={`${profile.id}-${index}`} className="text-center transition-shadow duration-300 hover:shadow-xl">
             <CardContent className="p-6">
             <Image
-                src={profile.imageUrl.replace(/seed\/\w+/, `seed/servicepage${index}`)}
+                src={profile.imageUrl}
                 alt={profile.name}
                 width={128}
                 height={128}

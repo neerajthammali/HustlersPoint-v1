@@ -21,7 +21,7 @@ export default function BlogPage() {
           <Card key={post.id} className="overflow-hidden transition-shadow duration-300 hover:shadow-xl">
             <Link href={`/blog/${post.slug}`}>
               <Image
-                src={post.imageUrl.replace(/seed\/\w+/, `seed/blogpage${index}`)}
+                src={post.imageUrl}
                 alt={post.title}
                 width={600}
                 height={400}

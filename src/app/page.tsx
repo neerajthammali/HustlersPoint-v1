@@ -27,21 +27,21 @@ const testimonials = [
     quote: "Hustler's Point is my go-to for no-fluff, actionable advice. The case studies on startup growth have been a game-changer for my own venture.",
     author: 'Alex Johnson',
     role: 'SaaS Founder',
-    imageUrl: 'https://picsum.photos/seed/alex/100/100',
+    imageUrl: '/images/alex.jpg',
     imageHint: 'man portrait',
   },
   {
     quote: "The community is incredible. Being able to connect with other founders who are facing the same challenges is invaluable. It's like a mastermind group in my pocket.",
     author: 'Samantha Lee',
     role: 'Early-Stage Entrepreneur',
-    imageUrl: 'https://picsum.photos/seed/samantha/100/100',
+    imageUrl: '/images/samantha.jpg',
     imageHint: 'woman portrait',
   },
   {
     quote: "The breakdowns of how successful companies solved real-world problems are pure gold. It's inspiring and gives me tangible ideas to apply to my own business.",
     author: 'David Chen',
     role: 'Bootstrapped Founder',
-    imageUrl: 'https://picsum.photos/seed/david/100/100',
+    imageUrl: '/images/david.jpg',
     imageHint: 'person glasses',
   },
 ];
@@ -298,5 +298,3 @@ export default function Home() {
     </div>
   );
 }
-
-    

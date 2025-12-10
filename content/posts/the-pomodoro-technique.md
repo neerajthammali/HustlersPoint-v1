@@ -4,7 +4,7 @@ author: 'Jane Doe'
 category: 'Productivity'
 date: '2023-10-12'
 excerpt: 'Discover how a simple tomato timer can revolutionize the way you work and study.'
-imageUrl: 'https://picsum.photos/seed/blog1/600/400'
+imageUrl: '/images/blog1.jpg'
 imageHint: 'desk timer'
 ---
 

@@ -39,7 +39,7 @@ export default async function StoryPage({ params }: { params: { slug: string } }
 
           <div className="my-8">
             <Image
-              src={story.imageUrl.replace('600/400', '1200/600')}
+              src={story.imageUrl}
               alt={story.title}
               width={1200}
               height={600}

@@ -40,7 +40,7 @@ export function CommentSection({ articleId }: { articleId: string }) {
       author: "Guest", // In a real app, this would be the logged-in user
       text: newComment,
       timestamp: new Date().toISOString(),
-      avatar: `https://i.pravatar.cc/40?u=${Date.now()}`,
+      avatar: `/images/avatar.png`, // Generic avatar
     }
 
     const updatedComments = [...comments, comment]

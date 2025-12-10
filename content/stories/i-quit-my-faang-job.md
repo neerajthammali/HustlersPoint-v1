@@ -3,7 +3,7 @@ title: 'I quit my FAANG job to build an indie game. Best decision ever.'
 source: 'Reddit'
 excerpt: 'The journey was tough, filled with doubt, but the freedom and fulfillment are unparalleled.'
 author: 'u/dev_dreamer'
-imageUrl: 'https://picsum.photos/seed/story2/600/400'
+imageUrl: '/images/story2.jpg'
 imageHint: 'game development'
 ---
 

@@ -3,7 +3,7 @@ title: 'Launched on Product Hunt and Hit #1 Product of the Day!'
 source: 'Product Hunt'
 excerpt: 'Our launch strategy, the mistakes we made, and what we learned from the experience.'
 author: 'Maker Team'
-imageUrl: 'https://picsum.photos/seed/story3/600/400'
+imageUrl: '/images/story3.jpg'
 imageHint: 'startup launch'
 ---
 

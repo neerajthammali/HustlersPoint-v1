@@ -4,7 +4,7 @@ author: 'Alex Johnson'
 category: 'Growth'
 date: '2023-10-08'
 excerpt: 'Turn your hobbies and skills into a profitable side business with these proven ideas.'
-imageUrl: 'https://picsum.photos/seed/blog3/600/400'
+imageUrl: '/images/blog3.jpg'
 imageHint: 'laptop coffee'
 ---
 

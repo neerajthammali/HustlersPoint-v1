@@ -19,7 +19,7 @@ export default function NewsPage() {
             <Link href="#" className="flex flex-col">
               <div>
                 <Image
-                  src={article.imageUrl.replace(/seed\/\w+/, `seed/newspage${index}`)}
+                  src={article.imageUrl}
                   alt={article.title}
                   width={300}
                   height={200}

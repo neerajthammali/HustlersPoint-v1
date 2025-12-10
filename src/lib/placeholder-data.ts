@@ -71,7 +71,7 @@ export const blogPosts: Post[] = [
       category: 'Productivity',
       date: 'Oct 12, 2023',
       excerpt: 'Discover how a simple tomato timer can revolutionize the way you work and study.',
-      imageUrl: 'https://picsum.photos/seed/blog1/600/400',
+      imageUrl: '/images/blog1.jpg',
       imageHint: 'desk timer',
     },
     {
@@ -81,7 +81,7 @@ export const blogPosts: Post[] = [
       category: 'Research',
       date: 'Oct 10, 2023',
       excerpt: 'An in-depth look into the values, aspirations, and work ethics of Gen Z.',
-      imageUrl: 'https://picsum.photos/seed/blog2/600/400',
+      imageUrl: '/images/blog2.jpg',
       imageHint: 'young people',
     },
     {
@@ -91,7 +91,7 @@ export const blogPosts: Post[] = [
       category: 'Growth',
       date: 'Oct 8, 2023',
       excerpt: 'Turn your hobbies and skills into a profitable side business with these proven ideas.',
-      imageUrl: 'https://picsum.photos/seed/blog3/600/400',
+      imageUrl: '/images/blog3.jpg',
       imageHint: 'laptop coffee',
     },
   ];
@@ -104,7 +104,7 @@ export const blogPosts: Post[] = [
       sourceIcon: Linkedin,
       excerpt: 'How I bootstrapped my way to profitability by solving a niche problem I faced myself...',
       author: 'Sarah Chen',
-      imageUrl: 'https://picsum.photos/seed/story1/600/400',
+      imageUrl: '/images/story1.jpg',
       imageHint: 'person laptop'
     },
     {
@@ -114,7 +114,7 @@ export const blogPosts: Post[] = [
       sourceIcon: Bot,
       excerpt: 'The journey was tough, filled with doubt, but the freedom and fulfillment are unparalleled.',
       author: 'u/dev_dreamer',
-      imageUrl: 'https://picsum.photos/seed/story2/600/400',
+      imageUrl: '/images/story2.jpg',
       imageHint: 'game development'
     },
     {
@@ -124,7 +124,7 @@ export const blogPosts: Post[] = [
       sourceIcon: Rss,
       excerpt: 'Our launch strategy, the mistakes we made, and what we learned from the experience.',
       author: 'Maker Team',
-      imageUrl: 'https://picsum.photos/seed/story3/600/400',
+      imageUrl: '/images/story3.jpg',
       imageHint: 'startup launch'
     },
   ];
@@ -145,7 +145,7 @@ export const serviceProfiles: ServiceProfile[] = [
     name: 'Emily Carter',
     role: 'Freelance UI/UX Designer',
     description: 'Crafting intuitive and beautiful digital experiences for startups and scale-ups.',
-    imageUrl: 'https://picsum.photos/seed/profile1/300/300',
+    imageUrl: '/images/profile1.jpg',
     imageHint: 'designer portrait',
   },
   {
@@ -153,7 +153,7 @@ export const serviceProfiles: ServiceProfile[] = [
     name: 'Ben "SaaS" Miller',
     role: 'SaaS Builder',
     description: 'Building micro-SaaS solutions that solve real-world business problems efficiently.',
-    imageUrl: 'https://picsum.photos/seed/profile2/300/300',
+    imageUrl: '/images/profile2.jpg',
     imageHint: 'developer portrait',
   },
   {
@@ -161,7 +161,7 @@ export const serviceProfiles: ServiceProfile[] = [
     name: 'Chloe Davis',
     role: 'Growth Marketer',
     description: 'Helping businesses find their first 1000 customers with data-driven strategies.',
-    imageUrl: 'https://picsum.photos/seed/profile3/300/300',
+    imageUrl: '/images/profile3.jpg',
     imageHint: 'marketer portrait',
   },
 ];
@@ -181,7 +181,7 @@ export const trendingNews: NewsArticle[] = [
     title: 'New AI Model Achieves Human-Level Performance in Code Generation',
     source: 'TechCrunch',
     date: '2 hours ago',
-    imageUrl: 'https://picsum.photos/seed/news1/300/200',
+    imageUrl: '/images/news1.jpg',
     imageHint: 'abstract code',
   },
   {
@@ -189,7 +189,7 @@ export const trendingNews: NewsArticle[] = [
     title: 'The Rise of the "Creator Economy" and What It Means for The Future of Work',
     source: 'Forbes',
     date: '5 hours ago',
-    imageUrl: 'https://picsum.photos/seed/news2/300/200',
+    imageUrl: '/images/news2.jpg',
     imageHint: 'person podcasting',
   },
   {
@@ -197,7 +197,7 @@ export const trendingNews: NewsArticle[] = [
     title: 'Venture Capital Funding Sees a Shift Towards Sustainable Tech',
     source: 'Bloomberg',
     date: '1 day ago',
-    imageUrl: 'https://picsum.photos/seed/news3/300/200',
+    imageUrl: '/images/news3.jpg',
     imageHint: 'wind turbines',
   },
 ];

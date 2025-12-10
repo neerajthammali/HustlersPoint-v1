@@ -3,7 +3,7 @@ title: 'From 0 to $10k MRR in 6 Months with a Simple SaaS'
 source: 'LinkedIn'
 excerpt: 'How I bootstrapped my way to profitability by solving a niche problem I faced myself...'
 author: 'Sarah Chen'
-imageUrl: 'https://picsum.photos/seed/story1/600/400'
+imageUrl: '/images/story1.jpg'
 imageHint: 'person laptop'
 ---
 

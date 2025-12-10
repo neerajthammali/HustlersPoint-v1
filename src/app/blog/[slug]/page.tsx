@@ -37,7 +37,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
           <div className="my-8">
             <Image
-              src={post.imageUrl.replace('600/400', '1200/600')}
+              src={post.imageUrl}
               alt={post.title}
               width={1200}
               height={600}

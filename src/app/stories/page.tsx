@@ -19,7 +19,7 @@ export default function StoriesPage() {
         <Card key={story.id} className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
             <Link href={`/stories/${story.slug}`}>
             <Image
-                src={story.imageUrl.replace(/seed\/\w+/, `seed/storypage${index}`)}
+                src={story.imageUrl}
                 alt={story.title}
                 width={600}
                 height={400}
