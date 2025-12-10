@@ -1,48 +1,35 @@
+
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { useUser } from "@/firebase"
-import Link from "next/link"
+import { useFirestore, useUser, useCollection } from "@/firebase"
+import { collection, addDoc, serverTimestamp, Timestamp } from "firebase/firestore"
+import { Input } from "../ui/input"
 
 type Comment = {
+  id?: string
   author: string
   text: string
-  timestamp: string
+  timestamp: Timestamp
   avatar: string | null
-  authorId: string
+  authorId: string | 'anonymous'
 }
 
-export function CommentSection({ articleId }: { articleId: string }) {
+export function CommentSection({ articleId }: { articleId:string }) {
   const { user } = useUser()
-  const [comments, setComments] = useState<Comment[]>([])
+  const db = useFirestore()
   const [newComment, setNewComment] = useState("")
+  const [anonymousName, setAnonymousName] = useState("")
   const { toast } = useToast()
-  const storageKey = `comments-${articleId}`
+  
+  const commentsPath = `articles/${articleId}/comments`;
+  const { data: comments, loading } = useCollection<Comment>(commentsPath, { orderBy: ["timestamp", "asc"] });
 
-  useEffect(() => {
-    try {
-        const storedComments = localStorage.getItem(storageKey)
-        if (storedComments) {
-            setComments(JSON.parse(storedComments))
-        }
-    } catch (error) {
-        console.error("Failed to parse comments from localStorage", error)
-    }
-  }, [storageKey])
-
-  const handleAddComment = () => {
-    if (!user) {
-        toast({
-            variant: "destructive",
-            title: "Not Logged In",
-            description: "You must be logged in to post a comment.",
-        })
-        return;
-    }
+  const handleAddComment = async () => {
     if (newComment.trim() === "") {
       toast({
         variant: "destructive",
@@ -52,30 +39,44 @@ export function CommentSection({ articleId }: { articleId: string }) {
       return
     }
 
-    const comment: Comment = {
-      author: user.displayName || "Anonymous",
+    if (!user && anonymousName.trim() === "") {
+        toast({
+            variant: "destructive",
+            title: "Name Required",
+            description: "Please enter your name to post a comment.",
+        })
+        return
+    }
+    
+    if (!db) {
+        toast({ variant: "destructive", title: "Error", description: "Database not available." })
+        return
+    }
+
+    const commentData = {
+      author: user?.displayName || anonymousName,
       text: newComment,
-      timestamp: new Date().toISOString(),
-      avatar: user.photoURL,
-      authorId: user.uid,
+      timestamp: serverTimestamp(),
+      avatar: user?.photoURL || null,
+      authorId: user?.uid || 'anonymous',
     }
 
     try {
-        const updatedComments = [...comments, comment]
-        setComments(updatedComments)
-        localStorage.setItem(storageKey, JSON.stringify(updatedComments))
-        setNewComment("")
-        toast({
+      const collectionRef = collection(db, commentsPath);
+      await addDoc(collectionRef, commentData);
+      setNewComment("")
+      setAnonymousName("")
+      toast({
         title: "Comment Added",
         description: "Your comment has been posted.",
-        })
+      })
     } catch (error) {
-        console.error("Failed to save comment to localStorage", error)
-        toast({
-            variant: "destructive",
-            title: "Error",
-            description: "Failed to save your comment.",
-        })
+      console.error("Error adding comment to firestore", error)
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to save your comment.",
+      })
     }
   }
 
@@ -83,8 +84,9 @@ export function CommentSection({ articleId }: { articleId: string }) {
     <div className="mt-16">
       <h2 className="text-2xl font-bold mb-6">Comments ({comments.length})</h2>
       <div className="space-y-6">
-        {comments.map((comment, index) => (
-          <div key={index} className="flex items-start space-x-4">
+        {loading && <p>Loading comments...</p>}
+        {!loading && comments.map((comment) => (
+          <div key={comment.id} className="flex items-start space-x-4">
             <Avatar>
               <AvatarImage src={comment.avatar || undefined} alt={comment.author} />
               <AvatarFallback>{comment.author.charAt(0)}</AvatarFallback>
@@ -93,7 +95,7 @@ export function CommentSection({ articleId }: { articleId: string }) {
               <div className="flex items-baseline space-x-2">
                 <p className="font-semibold">{comment.author}</p>
                 <p className="text-xs text-muted-foreground">
-                  {new Date(comment.timestamp).toLocaleDateString()}
+                  {comment.timestamp ? new Date(comment.timestamp.toDate()).toLocaleDateString() : 'Just now'}
                 </p>
               </div>
               <p className="mt-1 text-muted-foreground">{comment.text}</p>
@@ -104,26 +106,26 @@ export function CommentSection({ articleId }: { articleId: string }) {
 
       <div className="mt-8">
         <h3 className="text-lg font-semibold mb-4">Leave a Comment</h3>
-        {user ? (
-          <div className="grid gap-4">
+        <div className="grid gap-4">
+            {!user && (
+                 <div className="space-y-2">
+                    <Input 
+                        value={anonymousName}
+                        onChange={(e) => setAnonymousName(e.target.value)}
+                        placeholder="Your Name"
+                    />
+                </div>
+            )}
             <Textarea
-              value={newComment}
-              onChange={(e) => setNewComment(e.target.value)}
-              placeholder="Write your comment here..."
-              className="min-h-[120px]"
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+                placeholder="Write your comment here..."
+                className="min-h-[120px]"
             />
             <Button onClick={handleAddComment} className="justify-self-end">
-              Post Comment
+                Post Comment
             </Button>
-          </div>
-        ) : (
-            <div className="text-center p-8 border rounded-lg">
-                <p className="text-muted-foreground">You must be logged in to leave a comment.</p>
-                <Button asChild className="mt-4">
-                    <Link href="/login">Login to Comment</Link>
-                </Button>
-            </div>
-        )}
+        </div>
       </div>
     </div>
   )
