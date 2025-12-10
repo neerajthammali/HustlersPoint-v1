@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Roboto Slab', 'serif'],
+        body: ['Poppins', 'sans-serif'],
+        headline: ['Montserrat', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
