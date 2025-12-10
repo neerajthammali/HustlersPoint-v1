@@ -1,37 +1,75 @@
 import Link from "next/link"
-import { Mountain } from "lucide-react"
+import { Dribbble, Github, Instagram, Twitter } from "lucide-react"
 
-const navItems = [
-    { href: "/blog", label: "Blog" },
-    { href: "/stories", label: "Stories" },
-    { href: "/services", label: "Services" },
-    { href: "/news", label: "News" },
-    { href: "/community", label: "Community" },
+const footerNav = [
+    {
+        title: "Navigation",
+        items: [
+            { label: "Home", href: "/" },
+            { label: "Articles", href: "#" },
+            { label: "About", href: "#" },
+            { label: "Contact", href: "#" },
+        ]
+    },
+    {
+        title: "Categories",
+        items: [
+            { label: "Brands & Inspiration", href: "#" },
+            { label: "Tech & AI", href: "#" },
+            { label: "Business & Industry", href: "#" },
+            { label: "Brands & Startups", href: "#" },
+            { label: "Fintech & Startups", href: "#" },
+        ]
+    }
 ]
+
+const socialLinks = [
+    { Icon: Twitter, href: "#", label: "Twitter" },
+    { Icon: Instagram, href: "#", label: "Instagram" },
+    { Icon: Dribbble, href: "#", label: "Dribbble" },
+    { Icon: Github, href: "#", label: "Github" },
+]
+
 
 export function Footer() {
   return (
-    <footer className="border-t bg-card">
-      <div className="container py-8">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div className="flex items-center gap-2">
-            <Mountain className="h-6 w-6 text-primary" />
-            <span className="font-headline text-lg font-bold">Hustlerspoint</span>
+    <footer className="bg-muted/50">
+      <div className="container py-12">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div className="grid grid-cols-2 gap-8 col-span-2">
+                {footerNav.map(section => (
+                    <div key={section.title}>
+                        <h3 className="font-semibold text-foreground">{section.title}</h3>
+                        <ul className="mt-4 space-y-2">
+                        {section.items.map(item => (
+                            <li key={item.label}>
+                                <Link href={item.href} className="text-sm text-muted-foreground hover:text-foreground">
+                                    {item.label}
+                                </Link>
+                            </li>
+                        ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+            <div>
+                 <h3 className="font-semibold text-foreground">Connect</h3>
+                 <div className="mt-4 flex space-x-4">
+                    {socialLinks.map(({Icon, href, label}) => (
+                         <Link key={label} href={href} className="text-muted-foreground hover:text-foreground">
+                            <Icon className="h-5 w-5" />
+                            <span className="sr-only">{label}</span>
+                        </Link>
+                    ))}
+                 </div>
+            </div>
+        </div>
+        <div className="mt-8 border-t pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
+          <p>© {new Date().getFullYear()} Hustler Point. All rights reserved.</p>
+          <div className="flex gap-4 mt-4 md:mt-0">
+             <Link href="#" className="hover:text-foreground">Privacy Policy</Link>
+             <Link href="#" className="hover:text-foreground">Terms of Service</Link>
           </div>
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-muted-foreground transition-colors hover:text-primary"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Hustlerspoint. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>

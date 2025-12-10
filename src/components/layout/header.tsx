@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Menu, Mountain } from "lucide-react"
+import { Menu, Zap } from "lucide-react"
 import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
@@ -9,11 +9,10 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 const navItems = [
-  { href: "/blog", label: "Blog" },
-  { href: "/stories", label: "Stories" },
-  { href: "/services", label: "Services" },
-  { href: "/news", label: "News" },
-  { href: "/community", label: "Community" },
+  { href: "/blog", label: "Articles" },
+  { href: "/stories", label: "About" },
+  { href: "/services", label: "Share Idea" },
+  { href: "/community", label: "Contact" },
 ]
 
 export function Header() {
@@ -23,17 +22,17 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center gap-2">
-          <Mountain className="h-6 w-6 text-primary" />
-          <span className="font-headline text-lg font-bold">Hustlerspoint</span>
+          <Zap className="h-6 w-6 text-primary" />
+          <span className="text-lg font-bold">Hustler Point</span>
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
           {navItems.map((item) => (
             <Link
-              key={item.href}
-              href={item.href}
+              key={item.label}
+              href="#"
               className={cn(
-                "transition-colors hover:text-primary",
-                pathname.startsWith(item.href) ? "text-primary" : "text-muted-foreground"
+                "transition-colors hover:text-foreground",
+                pathname.startsWith(item.href) ? "text-foreground" : "text-muted-foreground"
               )}
             >
               {item.label}
@@ -43,7 +42,7 @@ export function Header() {
         <div className="ml-auto flex items-center gap-4">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="md:hidden">
+              <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
@@ -54,16 +53,16 @@ export function Header() {
                   href="/"
                   className="flex items-center gap-2 text-lg font-semibold"
                 >
-                  <Mountain className="h-6 w-6 text-primary" />
-                  <span className="font-headline">Hustlerspoint</span>
+                  <Zap className="h-6 w-6 text-primary" />
+                  <span>Hustler Point</span>
                 </Link>
                 {navItems.map((item) => (
                   <Link
-                    key={item.href}
-                    href={item.href}
+                    key={item.label}
+                    href="#"
                     className={cn(
-                      "transition-colors hover:text-primary",
-                      pathname.startsWith(item.href) ? "text-primary" : "text-muted-foreground"
+                      "transition-colors hover:text-foreground",
+                       pathname.startsWith(item.href) ? "text-foreground" : "text-muted-foreground"
                     )}
                   >
                     {item.label}
@@ -72,7 +71,6 @@ export function Header() {
               </nav>
             </SheetContent>
           </Sheet>
-          <Button>Get Started</Button>
         </div>
       </div>
     </header>
