@@ -10,9 +10,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 const navItems = [
   { href: "/blog", label: "Articles" },
-  { href: "/stories", label: "About" },
-  { href: "/services", label: "Share Idea" },
-  { href: "/community", label: "Contact" },
+  { href: "/stories", label: "Stories" },
+  { href: "/services", label: "Services" },
+  { href: "/community", label: "Community" },
+  { href: "/news", label: "News" },
 ]
 
 export function Header() {
@@ -29,7 +30,7 @@ export function Header() {
           {navItems.map((item) => (
             <Link
               key={item.label}
-              href="#"
+              href={item.href}
               className={cn(
                 "transition-colors hover:text-foreground",
                 pathname.startsWith(item.href) ? "text-foreground" : "text-muted-foreground"
@@ -59,7 +60,7 @@ export function Header() {
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
-                    href="#"
+                    href={item.href}
                     className={cn(
                       "transition-colors hover:text-foreground",
                        pathname.startsWith(item.href) ? "text-foreground" : "text-muted-foreground"
