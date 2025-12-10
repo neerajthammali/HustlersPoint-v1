@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins, Montserrat } from 'next/font/google';
+import { Montserrat, Space_Grotesk as SpaceGrotesk } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
@@ -8,18 +8,17 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { cn } from '@/lib/utils';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-poppins',
-  weight: ['400', '500', '600', '700'],
-});
-
 const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-montserrat',
-  weight: ['600', '700', '800', '900'],
+});
+
+const spaceGrotesk = SpaceGrotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-space-grotesk',
+  weight: ['400', '500', '600', '700'],
 });
 
 
@@ -53,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn('font-body antialiased', poppins.variable, montserrat.variable)}>
+      <body className={cn('font-body antialiased', montserrat.variable, spaceGrotesk.variable)}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
