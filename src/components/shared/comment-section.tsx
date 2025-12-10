@@ -5,15 +5,19 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { useUser } from "@/firebase"
+import Link from "next/link"
 
 type Comment = {
   author: string
   text: string
   timestamp: string
-  avatar: string
+  avatar: string | null
+  authorId: string
 }
 
 export function CommentSection({ articleId }: { articleId: string }) {
+  const { user } = useUser()
   const [comments, setComments] = useState<Comment[]>([])
   const [newComment, setNewComment] = useState("")
   const { toast } = useToast()
@@ -31,6 +35,14 @@ export function CommentSection({ articleId }: { articleId: string }) {
   }, [storageKey])
 
   const handleAddComment = () => {
+    if (!user) {
+        toast({
+            variant: "destructive",
+            title: "Not Logged In",
+            description: "You must be logged in to post a comment.",
+        })
+        return;
+    }
     if (newComment.trim() === "") {
       toast({
         variant: "destructive",
@@ -41,10 +53,11 @@ export function CommentSection({ articleId }: { articleId: string }) {
     }
 
     const comment: Comment = {
-      author: "Guest", // In a real app, this would be the logged-in user
+      author: user.displayName || "Anonymous",
       text: newComment,
       timestamp: new Date().toISOString(),
-      avatar: `/images/avatar.png`, // Generic avatar
+      avatar: user.photoURL,
+      authorId: user.uid,
     }
 
     try {
@@ -73,7 +86,7 @@ export function CommentSection({ articleId }: { articleId: string }) {
         {comments.map((comment, index) => (
           <div key={index} className="flex items-start space-x-4">
             <Avatar>
-              <AvatarImage src={comment.avatar} alt={comment.author} />
+              <AvatarImage src={comment.avatar || undefined} alt={comment.author} />
               <AvatarFallback>{comment.author.charAt(0)}</AvatarFallback>
             </Avatar>
             <div className="flex-1">
@@ -91,17 +104,26 @@ export function CommentSection({ articleId }: { articleId: string }) {
 
       <div className="mt-8">
         <h3 className="text-lg font-semibold mb-4">Leave a Comment</h3>
-        <div className="grid gap-4">
-          <Textarea
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            placeholder="Write your comment here..."
-            className="min-h-[120px]"
-          />
-          <Button onClick={handleAddComment} className="justify-self-end">
-            Post Comment
-          </Button>
-        </div>
+        {user ? (
+          <div className="grid gap-4">
+            <Textarea
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="Write your comment here..."
+              className="min-h-[120px]"
+            />
+            <Button onClick={handleAddComment} className="justify-self-end">
+              Post Comment
+            </Button>
+          </div>
+        ) : (
+            <div className="text-center p-8 border rounded-lg">
+                <p className="text-muted-foreground">You must be logged in to leave a comment.</p>
+                <Button asChild className="mt-4">
+                    <Link href="/login">Login to Comment</Link>
+                </Button>
+            </div>
+        )}
       </div>
     </div>
   )
