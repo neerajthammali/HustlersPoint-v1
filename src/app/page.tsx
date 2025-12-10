@@ -15,9 +15,9 @@ import {
 } from "@/components/ui/carousel"
 
 const stats = [
-  { value: '5+', label: 'Articles Published', Icon: BookOpen },
-  { value: '85+', label: 'Ideas Shared', Icon: Lightbulb },
-  { value: '500+', label: 'Community Members', Icon: Users },
+  { value: '12+', label: 'Blogs', Icon: BookOpen },
+  { value: '12K+', label: 'Impressions', Icon: Lightbulb },
+  { value: '500+', label: 'Subscribers', Icon: Users },
 ];
 
 const testimonials = [
