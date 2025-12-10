@@ -3,16 +3,29 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
-import { Post, Story } from './placeholder-data';
+import type { Story } from './placeholder-data';
 import { storyIconMapper } from './icon-mappers/story-icon-mapper';
-import { getAuthorData, getSortedAuthorsData } from './authors';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 const storiesDirectory = path.join(process.cwd(), 'content/stories');
 
-type AllPostsData = (Post & { slug: string })[];
+export type Post = {
+  id: string;
+  slug: string;
+  title: string;
+  author: string;
+  authorSlug: string;
+  authorBio: string;
+  category: string;
+  date: string;
+  excerpt: string;
+  imageUrl: string;
+  imageHint: string;
+  contentHtml?: string;
+};
 
-export function getSortedPostsData(): AllPostsData {
+
+export function getSortedPostsData(): Post[] {
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
     const slug = fileName.replace(/\.md$/, '');
@@ -22,7 +35,7 @@ export function getSortedPostsData(): AllPostsData {
 
     return {
       slug,
-      ...(matterResult.data as Omit<Post, 'id'>),
+      ...(matterResult.data as Omit<Post, 'id' | 'slug'>),
       id: slug,
     };
   });
@@ -36,7 +49,7 @@ export function getSortedPostsData(): AllPostsData {
   });
 }
 
-export async function getPostData(slug: string) {
+export async function getPostData(slug: string): Promise<Post> {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const matterResult = matter(fileContents);
@@ -48,7 +61,7 @@ export async function getPostData(slug: string) {
   return {
     slug,
     contentHtml,
-    ...(matterResult.data as Omit<Post, 'id'>),
+    ...(matterResult.data as Omit<Post, 'id' | 'slug' | 'contentHtml'>),
     id: slug,
   };
 }

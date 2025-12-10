@@ -1,5 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
 import { BookOpen, Newspaper, Users, Briefcase, Sparkles, Linkedin, Rss, Bot } from 'lucide-react';
+import { PlaceHolderImages } from './placeholder-images';
 
 export type Feature = {
   title: string;
@@ -41,18 +42,6 @@ export const features: Feature[] = [
   },
 ];
 
-export type Post = {
-  id: string;
-  title: string;
-  author: string;
-  authorSlug: string;
-  authorBio: string;
-  category: string;
-  date: string;
-  excerpt: string;
-  imageUrl: string;
-  imageHint: string;
-};
 
 export type Story = {
   id: string;
@@ -65,45 +54,6 @@ export type Story = {
   imageHint: string;
 };
 
-export const blogPosts: Post[] = [
-    {
-      id: 'the-pomodoro-technique',
-      title: 'The Pomodoro Technique: A Guide to Ultimate Productivity',
-      author: 'Jane Doe',
-      authorSlug: 'jane-doe',
-      authorBio: 'Jane is a productivity expert and writer focused on helping people work smarter, not harder.',
-      category: 'Productivity',
-      date: 'Oct 12, 2023',
-      excerpt: 'Discover how a simple tomato timer can revolutionize the way you work and study.',
-      imageUrl: '/images/blog1.jpg',
-      imageHint: 'desk timer',
-    },
-    {
-      id: 'decoding-gen-z',
-      title: 'Decoding Gen Z: What Motivates the Next Generation of Workers',
-      author: 'John Smith',
-      authorSlug: 'john-smith',
-      authorBio: 'John is a market researcher and sociologist specializing in generational trends and workplace dynamics.',
-      category: 'Research',
-      date: 'Oct 10, 2023',
-      excerpt: 'An in-depth look into the values, aspirations, and work ethics of Gen Z.',
-      imageUrl: '/images/blog2.jpg',
-      imageHint: 'young people',
-    },
-    {
-      id: 'side-hustles-that-pay',
-      title: 'Side Hustles That Pay: From Passion to Profit',
-      author: 'Alex Johnson',
-      authorSlug: 'alex-johnson',
-      authorBio: 'Alex is a serial entrepreneur and author who loves sharing practical advice for starting and growing a business.',
-      category: 'Growth',
-      date: 'Oct 8, 2023',
-      excerpt: 'Turn your hobbies and skills into a profitable side business with these proven ideas.',
-      imageUrl: '/images/blog3.jpg',
-      imageHint: 'laptop coffee',
-    },
-  ];
-
   export const hustlerStories: Story[] = [
     {
       id: 'from-0-to-10k-mrr',
@@ -112,8 +62,8 @@ export const blogPosts: Post[] = [
       sourceIcon: Linkedin,
       excerpt: 'How I bootstrapped my way to profitability by solving a niche problem I faced myself...',
       author: 'Sarah Chen',
-      imageUrl: '/images/story1.jpg',
-      imageHint: 'person laptop'
+      imageUrl: PlaceHolderImages.find(p => p.id === 'story1')?.imageUrl || '/images/story1.jpg',
+      imageHint: PlaceHolderImages.find(p => p.id === 'story1')?.imageHint || 'person laptop'
     },
     {
       id: 'i-quit-my-faang-job',
@@ -122,8 +72,8 @@ export const blogPosts: Post[] = [
       sourceIcon: Bot,
       excerpt: 'The journey was tough, filled with doubt, but the freedom and fulfillment are unparalleled.',
       author: 'u/dev_dreamer',
-      imageUrl: '/images/story2.jpg',
-      imageHint: 'game development'
+      imageUrl: PlaceHolderImages.find(p => p.id === 'story2')?.imageUrl || '/images/story2.jpg',
+      imageHint: PlaceHolderImages.find(p => p.id === 'story2')?.imageHint || 'game development'
     },
     {
       id: 'launched-on-product-hunt',
@@ -132,8 +82,8 @@ export const blogPosts: Post[] = [
       sourceIcon: Rss,
       excerpt: 'Our launch strategy, the mistakes we made, and what we learned from the experience.',
       author: 'Maker Team',
-      imageUrl: '/images/story3.jpg',
-      imageHint: 'startup launch'
+      imageUrl: PlaceHolderImages.find(p => p.id === 'story3')?.imageUrl || '/images/story3.jpg',
+      imageHint: PlaceHolderImages.find(p => p.id === 'story3')?.imageHint || 'startup launch'
     },
   ];
 
@@ -153,24 +103,24 @@ export const serviceProfiles: ServiceProfile[] = [
     name: 'Emily Carter',
     role: 'Freelance UI/UX Designer',
     description: 'Crafting intuitive and beautiful digital experiences for startups and scale-ups.',
-    imageUrl: '/images/profile1.jpg',
-    imageHint: 'designer portrait',
+    imageUrl: PlaceHolderImages.find(p => p.id === 'profile1')?.imageUrl || '/images/profile1.jpg',
+    imageHint: PlaceHolderImages.find(p => p.id === 'profile1')?.imageHint || 'designer portrait',
   },
   {
     id: '2',
     name: 'Ben "SaaS" Miller',
     role: 'SaaS Builder',
     description: 'Building micro-SaaS solutions that solve real-world business problems efficiently.',
-    imageUrl: '/images/profile2.jpg',
-    imageHint: 'developer portrait',
+    imageUrl: PlaceHolderImages.find(p => p.id === 'profile2')?.imageUrl || '/images/profile2.jpg',
+    imageHint: PlaceHolderImages.find(p => p.id === 'profile2')?.imageHint || 'developer portrait',
   },
   {
     id: '3',
     name: 'Chloe Davis',
     role: 'Growth Marketer',
     description: 'Helping businesses find their first 1000 customers with data-driven strategies.',
-    imageUrl: '/images/profile3.jpg',
-    imageHint: 'marketer portrait',
+    imageUrl: PlaceHolderImages.find(p => p.id === 'profile3')?.imageUrl || '/images/profile3.jpg',
+    imageHint: PlaceHolderImages.find(p => p.id === 'profile3')?.imageHint || 'marketer portrait',
   },
 ];
 
@@ -189,24 +139,24 @@ export const trendingNews: NewsArticle[] = [
     title: 'New AI Model Achieves Human-Level Performance in Code Generation',
     source: 'TechCrunch',
     date: '2 hours ago',
-    imageUrl: '/images/news1.jpg',
-    imageHint: 'abstract code',
+    imageUrl: PlaceHolderImages.find(p => p.id === 'news1')?.imageUrl || '/images/news1.jpg',
+    imageHint: PlaceHolderImages.find(p => p.id === 'news1')?.imageHint || 'abstract code',
   },
   {
     id: '2',
     title: 'The Rise of the "Creator Economy" and What It Means for The Future of Work',
     source: 'Forbes',
     date: '5 hours ago',
-    imageUrl: '/images/news2.jpg',
-    imageHint: 'person podcasting',
+    imageUrl: PlaceHolderImages.find(p => p.id === 'news2')?.imageUrl || '/images/news2.jpg',
+    imageHint: PlaceHolderImages.find(p => p.id === 'news2')?.imageHint || 'person podcasting',
   },
   {
     id: '3',
     title: 'Venture Capital Funding Sees a Shift Towards Sustainable Tech',
     source: 'Bloomberg',
     date: '1 day ago',
-    imageUrl: '/images/news3.jpg',
-    imageHint: 'wind turbines',
+    imageUrl: PlaceHolderImages.find(p => p.id === 'news3')?.imageUrl || '/images/news3.jpg',
+    imageHint: PlaceHolderImages.find(p => p.id === 'news3')?.imageHint || 'wind turbines',
   },
 ];
 

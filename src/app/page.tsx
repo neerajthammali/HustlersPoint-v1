@@ -12,7 +12,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { getSortedPostsData, getSortedStoriesData } from '@/lib/posts';
+import { getSortedPostsData } from '@/lib/posts';
+import { getSortedStoriesData } from '@/lib/posts';
 import { serviceProfiles } from '@/lib/placeholder-data';
 import { Badge } from '@/components/ui/badge';
 
@@ -28,21 +29,21 @@ const testimonials = [
     quote: "Hustler's Point is my go-to for no-fluff, actionable advice. The case studies on startup growth have been a game-changer for my own venture.",
     author: 'Alex Johnson',
     role: 'SaaS Founder',
-    imageUrl: '/images/alex.jpg',
+    imageUrl: 'https://picsum.photos/seed/alex/48/48',
     imageHint: 'man portrait',
   },
   {
     quote: "The community is incredible. Being able to connect with other founders who are facing the same challenges is invaluable. It's like a mastermind group in my pocket.",
     author: 'Samantha Lee',
     role: 'Early-Stage Entrepreneur',
-    imageUrl: '/images/samantha.jpg',
+    imageUrl: 'https://picsum.photos/seed/samantha/48/48',
     imageHint: 'woman portrait',
   },
   {
     quote: "The breakdowns of how successful companies solved real-world problems are pure gold. It's inspiring and gives me tangible ideas to apply to my own business.",
     author: 'David Chen',
     role: 'Bootstrapped Founder',
-    imageUrl: '/images/david.jpg',
+    imageUrl: 'https://picsum.photos/seed/david/48/48',
     imageHint: 'person glasses',
   },
 ];
