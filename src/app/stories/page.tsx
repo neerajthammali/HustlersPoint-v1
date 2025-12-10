@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { getSortedStoriesData } from '@/lib/posts';
+import { Separator } from '@/components/ui/separator';
+import { UserCircle } from 'lucide-react';
 
 export default function StoriesPage() {
   const hustlerStories = getSortedStoriesData();
@@ -15,31 +17,35 @@ export default function StoriesPage() {
       </div>
 
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {hustlerStories.map((story, index) => (
-        <Card key={story.id} className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
-            <Link href={`/stories/${story.slug}`}>
-            <Image
-                src={story.imageUrl}
-                alt={story.title}
-                width={600}
-                height={400}
-                className="h-48 w-full object-cover"
-                data-ai-hint={story.imageHint}
-            />
+        {hustlerStories.map((story) => (
+        <Card key={story.id} className="group flex flex-col overflow-hidden rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+            <Link href={`/stories/${story.slug}`} className="block overflow-hidden">
+                <Image
+                    src={story.imageUrl}
+                    alt={story.title}
+                    width={600}
+                    height={400}
+                    className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    data-ai-hint={story.imageHint}
+                />
             </Link>
-            <CardContent className="flex flex-1 flex-col p-6">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <story.sourceIcon className="h-4 w-4" />
-                <span>{story.source}</span>
-            </div>
-            <h3 className="font-headline mt-2 text-lg font-semibold">
-                <Link href={`/stories/${story.slug}`} className="hover:text-primary transition-colors">{story.title}</Link>
-            </h3>
-            <p className="mt-2 flex-1 text-sm text-muted-foreground line-clamp-3">{story.excerpt}</p>
-            <div className="mt-4 text-xs font-medium text-muted-foreground">
-                By {story.author}
-            </div>
+            <CardContent className="flex flex-1 flex-col p-4">
+              <h3 className="font-headline mt-3 text-lg font-semibold">
+                  <Link href={`/stories/${story.slug}`} className="hover:text-primary transition-colors">{story.title}</Link>
+              </h3>
+              <p className="mt-2 flex-1 text-sm text-muted-foreground line-clamp-3">{story.excerpt}</p>
             </CardContent>
+            <Separator className="my-0" />
+            <div className="flex items-center justify-between p-4 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2">
+                    <UserCircle className="h-4 w-4" />
+                    <span>{story.author}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <story.sourceIcon className="h-4 w-4" />
+                    <span>{story.source}</span>
+                </div>
+              </div>
         </Card>
         ))}
       </div>
