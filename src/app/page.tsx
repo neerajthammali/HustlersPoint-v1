@@ -63,7 +63,7 @@ export default function Home() {
           <div className="mt-8 flex justify-center gap-4">
             <Button asChild size="lg">
               <Link href="/blog">
-                Explore Articles <ArrowRight className="ml-2 h-5 w-5" />
+                Explore Articles <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="ghost">
@@ -77,7 +77,7 @@ export default function Home() {
       <section className="container mx-auto px-4 pb-16 md:pb-24">
         <div className="grid grid-cols-1 gap-8 border-y border-border py-8 md:grid-cols-3">
             {stats.map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center gap-2 text-center">
+              <div key={stat.label} className="flex flex-col items-center gap-2 text-center transition-transform duration-300 hover:scale-105">
                 <stat.Icon className="h-8 w-8 text-primary" />
                 <p className="text-3xl font-bold">{stat.value}</p>
                 <p className="text-muted-foreground">{stat.label}</p>
@@ -95,7 +95,7 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
-              <Card key={post.id} className="overflow-hidden border-none shadow-none transition-shadow duration-300 hover:shadow-xl bg-card">
+              <Card key={post.id} className="overflow-hidden border-none shadow-none transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-card">
                 <Link href="/blog">
                   <Image
                     src={post.imageUrl}
@@ -138,7 +138,7 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {hustlerStories.map((story) => (
-              <Card key={story.id} className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+              <Card key={story.id} className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                  <Link href="/stories">
                     <Image
                         src={story.imageUrl}
@@ -191,7 +191,7 @@ export default function Home() {
               {serviceProfiles.map((profile) => (
                 <CarouselItem key={profile.id} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <Card className="text-center transition-shadow duration-300 hover:shadow-xl bg-card h-full">
+                    <Card className="text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-card h-full">
                       <CardContent className="flex flex-col items-center p-6">
                         <Image
                           src={profile.imageUrl}
@@ -233,7 +233,7 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             {testimonials.map((testimonial) => (
-              <Card key={testimonial.author} className="border-none bg-muted/50 p-6 shadow-sm">
+              <Card key={testimonial.author} className="border-none bg-muted/50 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:scale-105">
                 <CardContent className="p-0">
                   <blockquote className="text-base italic text-foreground">
                     "{testimonial.quote}"
