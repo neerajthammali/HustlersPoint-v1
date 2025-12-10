@@ -25,8 +25,8 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Hustlerspoint! - Publish Your Ideas. Build Your Future.',
-    template: '%s | Hustlerspoint!',
+    default: 'HustlersPo!nt - Publish Your Ideas. Build Your Future.',
+    template: '%s | HustlersPo!nt',
   },
   description: 'A creator platform for writers, founders, and learners to share powerful insights and grow an audience.',
   manifest: '/manifest.webmanifest',
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
     apple: '/icon.svg',
   },
   openGraph: {
-    title: 'Hustlerspoint!',
+    title: 'HustlersPo!nt',
     description: 'A creator platform for writers, founders, and learners to share powerful insights and grow an audience.',
     type: 'website',
     locale: 'en_US',
     url: 'https://hustlerspoint.com', // Replace with your actual domain
-    siteName: 'Hustlerspoint!',
+    siteName: 'HustlersPo!nt',
   },
 };
 

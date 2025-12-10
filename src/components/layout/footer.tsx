@@ -64,7 +64,7 @@ export function Footer() {
             </div>
         </div>
         <div className="mt-8 border-t pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Hustlerspoint!. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} HustlersPo!nt. All rights reserved.</p>
           <div className="flex gap-4 mt-4 md:mt-0">
              <Link href="#" className="hover:text-foreground">Privacy Policy</Link>
              <Link href="#" className="hover:text-foreground">Terms of Service</Link>
