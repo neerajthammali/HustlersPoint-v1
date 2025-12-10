@@ -1,24 +1,25 @@
 import Link from "next/link"
 import { Dribbble, Github, Instagram, Twitter } from "lucide-react"
+import { NewsletterBanner } from "./newsletter-banner"
 
 const footerNav = [
     {
         title: "Navigation",
         items: [
             { label: "Home", href: "/" },
-            { label: "Articles", href: "#" },
-            { label: "About", href: "#" },
-            { label: "Contact", href: "#" },
+            { label: "Articles", href: "/blog" },
+            { label: "Stories", href: "/stories" },
+            { label: "Services", href: "/services" },
         ]
     },
     {
         title: "Categories",
         items: [
-            { label: "Brands & Inspiration", href: "#" },
+            { label: "Productivity", href: "#" },
             { label: "Tech & AI", href: "#" },
-            { label: "Business & Industry", href: "#" },
-            { label: "Brands & Startups", href: "#" },
-            { label: "Fintech & Startups", href: "#" },
+            { label: "Growth", href: "#" },
+            { label: "Community", href: "#" },
+            { label: "News", href: "/news" },
         ]
     }
 ]
@@ -34,6 +35,7 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="bg-muted/50">
+        <NewsletterBanner />
       <div className="container py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="grid grid-cols-2 gap-8 col-span-2">
