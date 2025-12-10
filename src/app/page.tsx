@@ -181,7 +181,7 @@ export default function Home() {
       {/* Services Showcase */}
       <section className="py-16 md:py-24 bg-muted/50">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold md:text-4xl">Top Service Providers</h2>
+          <h2 className="text-center text-3xl font-bold md:text-4xl">Most Reliable Services</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             Connect with talented freelancers, engineers, and SaaS builders ready to help you grow.
           </p>
@@ -197,13 +197,14 @@ export default function Home() {
                 <CarouselItem key={profile.id} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
                     <Card className="text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-card h-full">
-                      <CardContent className="flex flex-col items-center p-6">
+                      <CardContent className="flex flex-col items-center p-6 relative">
+                        <Badge variant="secondary" className="absolute top-4 right-4">Most Reliable</Badge>
                         <Image
                           src={profile.imageUrl}
                           alt={profile.name}
                           width={128}
                           height={128}
-                          className="mx-auto h-32 w-32 rounded-full object-cover"
+                          className="mx-auto h-32 w-32 rounded-full object-cover mt-8"
                           data-ai-hint={profile.imageHint}
                         />
                         <h3 className="font-headline mt-4 text-xl font-semibold">{profile.name}</h3>
