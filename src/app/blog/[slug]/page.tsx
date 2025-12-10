@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { CommentSection } from '@/components/shared/comment-section';
 import { getPostData, getSortedPostsData } from '@/lib/posts';
+import { NewsletterBanner } from '@/components/layout/newsletter-banner';
 
 export async function generateStaticParams() {
   const posts = getSortedPostsData();
@@ -49,6 +50,10 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             className="prose prose-lg mx-auto max-w-none dark:prose-invert"
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
+
+          <div className="my-16">
+            <NewsletterBanner />
+          </div>
 
           <CommentSection articleId={post.id} />
         </article>

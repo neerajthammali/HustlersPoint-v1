@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { Dribbble, Github, Instagram, Twitter } from "lucide-react"
-import { NewsletterBanner } from "./newsletter-banner"
 
 const footerNav = [
     {
@@ -34,10 +33,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-muted/50">
-      <section className="container py-12 md:py-16">
-        <NewsletterBanner />
-      </section>
+    <footer className="bg-muted/50 pt-12">
       <div className="container pb-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="grid grid-cols-2 gap-8 col-span-2">

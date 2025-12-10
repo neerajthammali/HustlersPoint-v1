@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { CommentSection } from '@/components/shared/comment-section';
 import { getStoryData, getSortedStoriesData } from '@/lib/posts';
+import { NewsletterBanner } from '@/components/layout/newsletter-banner';
 
 export async function generateStaticParams() {
   const stories = getSortedStoriesData();
@@ -57,6 +58,11 @@ export default async function StoryPage({ params }: { params: { slug: string } }
                 <Link href="/stories">Back to All Stories</Link>
             </Button>
           </div>
+          
+          <div className="my-16">
+            <NewsletterBanner />
+          </div>
+
           <CommentSection articleId={`story-${story.id}`} />
         </article>
       </div>
