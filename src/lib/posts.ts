@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import { Post, Story } from './placeholder-data';
-import {-icon-mappers/story-icon-mapper} from './icon-mappers/story-icon-mapper';
+import { storyIconMapper } from './icon-mappers/story-icon-mapper';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 const storiesDirectory = path.join(process.cwd(), 'content/stories');
