@@ -24,6 +24,7 @@ const montserrat = Montserrat({
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://hustlerspoint.com'), // Replace with your actual domain
   title: {
     default: 'HustlersPo!nt - Publish Your Ideas. Build Your Future.',
     template: '%s | HustlersPo!nt',
