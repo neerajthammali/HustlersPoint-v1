@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { DarkModeToggle } from "./dark-mode-toggle"
 
 const navItems = [
   { href: "/blog", label: "Articles" },
@@ -41,6 +42,7 @@ export function Header() {
           ))}
         </nav>
         <div className="ml-auto flex items-center gap-4">
+          <DarkModeToggle />
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
