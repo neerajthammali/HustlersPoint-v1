@@ -3,8 +3,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { serviceProfiles } from '@/lib/placeholder-data';
 import Link from 'next/link';
-import { PopularPosts } from '@/components/shared/popular-posts';
-import { BlogIdeasPoll } from '@/components/shared/blog-ideas-poll';
 
 export default function ServicesPage() {
   return (
@@ -16,34 +14,28 @@ export default function ServicesPage() {
         </p>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-12">
-        <div className="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {serviceProfiles.concat(serviceProfiles).concat(serviceProfiles).map((profile, index) => (
-            <Card key={`${profile.id}-${index}`} className="text-center transition-shadow duration-300 hover:shadow-xl">
-                <CardContent className="p-6">
-                <Image
-                    src={profile.imageUrl.replace(/seed\/\w+/, `seed/servicepage${index}`)}
-                    alt={profile.name}
-                    width={128}
-                    height={128}
-                    className="mx-auto h-32 w-32 rounded-full object-cover"
-                    data-ai-hint={profile.imageHint}
-                />
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {serviceProfiles.concat(serviceProfiles).concat(serviceProfiles).map((profile, index) => (
+        <Card key={`${profile.id}-${index}`} className="text-center transition-shadow duration-300 hover:shadow-xl">
+            <CardContent className="p-6">
+            <Image
+                src={profile.imageUrl.replace(/seed\/\w+/, `seed/servicepage${index}`)}
+                alt={profile.name}
+                width={128}
+                height={128}
+                className="mx-auto h-32 w-32 rounded-full object-cover"
+                data-ai-hint={profile.imageHint}
+            />
 
-                <h3 className="font-headline mt-4 text-xl font-semibold">{profile.name}</h3>
-                <p className="text-sm text-primary">{profile.role}</p>
-                <p className="mt-2 text-sm text-muted-foreground">{profile.description}</p>
-                <Button asChild variant="outline" className="mt-6">
-                    <Link href="#">View Profile</Link>
-                </Button>
-                </CardContent>
-            </Card>
-            ))}
-        </div>
-        <aside className="md:col-span-4 space-y-8">
-            <PopularPosts />
-            <BlogIdeasPoll />
-        </aside>
+            <h3 className="font-headline mt-4 text-xl font-semibold">{profile.name}</h3>
+            <p className="text-sm text-primary">{profile.role}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{profile.description}</p>
+            <Button asChild variant="outline" className="mt-6">
+                <Link href="#">View Profile</Link>
+            </Button>
+            </CardContent>
+        </Card>
+        ))}
       </div>
     </div>
   );

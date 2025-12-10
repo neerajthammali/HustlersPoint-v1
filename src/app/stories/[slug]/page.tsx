@@ -2,8 +2,6 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { PopularPosts } from '@/components/shared/popular-posts';
-import { BlogIdeasPoll } from '@/components/shared/blog-ideas-poll';
 import { CommentSection } from '@/components/shared/comment-section';
 import { getStoryData, getSortedStoriesData } from '@/lib/posts';
 
@@ -23,8 +21,8 @@ export default async function StoryPage({ params }: { params: { slug: string } }
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-        <article className="md:col-span-8">
+      <div className="max-w-4xl mx-auto">
+        <article>
           <div className="space-y-4 text-center">
             <div className="flex items-center justify-center gap-2 text-muted-foreground">
               <story.sourceIcon className="h-5 w-5" />
@@ -61,10 +59,6 @@ export default async function StoryPage({ params }: { params: { slug: string } }
           </div>
           <CommentSection articleId={`story-${story.id}`} />
         </article>
-        <aside className="md:col-span-4 space-y-8">
-          <PopularPosts />
-          <BlogIdeasPoll />
-        </aside>
       </div>
     </div>
   );
