@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -8,12 +7,6 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
-
-// Note: Metadata is not used in client components but is good for reference
-const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with the HustlersPo!nt team.',
-};
 
 export default function ContactPage() {
   const { toast } = useToast();

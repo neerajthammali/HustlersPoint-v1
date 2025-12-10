@@ -7,13 +7,6 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Chrome } from 'lucide-react';
-import type { Metadata } from 'next';
-
-const metadata: Metadata = {
-    title: 'Login',
-    description: 'Sign in to join the Hustlerspoint community.',
-};
-
 
 export default function LoginPage() {
     const auth = useAuth();
@@ -44,7 +37,7 @@ export default function LoginPage() {
         <div className="flex min-h-[calc(100vh-20rem)] items-center justify-center bg-background px-4 py-12">
             <Card className="w-full max-w-md">
                 <CardHeader className="text-center">
-                    <CardTitle className="text-2xl font-bold">Join Hustlerspoint</CardTitle>
+                    <CardTitle className="text-2xl font-bold">Join HustlersPo!nt</CardTitle>
                     <CardDescription>Sign in to join the community and share your story.</CardDescription>
                 </CardHeader>
                 <CardContent>
