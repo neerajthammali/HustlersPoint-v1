@@ -1,10 +1,9 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, BookOpen, Lightbulb, Users, Sparkles, Briefcase } from 'lucide-react';
+import { ArrowRight, BookOpen, Lightbulb, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import {
   Carousel,
   CarouselContent,
@@ -14,6 +13,7 @@ import {
 } from "@/components/ui/carousel"
 import { getSortedPostsData, getSortedStoriesData } from '@/lib/posts';
 import { serviceProfiles } from '@/lib/placeholder-data';
+import { Badge } from '@/components/ui/badge';
 
 
 const stats = [
@@ -54,12 +54,18 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="py-20 text-center md:py-32">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+      <section className="relative overflow-hidden bg-background py-20 text-center md:py-32">
+        <div className="absolute inset-0 z-0 opacity-10 dark:[&>div]:bg-primary/20 [&>div]:absolute [&>div]:-inset-y-1/4 [&>div]:w-1/4 [&>div]:animate-[spin_20s_linear_infinite] [&>div]:bg-secondary/20 [&>div]:blur-3xl">
+            <div className="left-0"></div>
+            <div className="left-1/4"></div>
+            <div className="left-2/4"></div>
+            <div className="left-3/4"></div>
+        </div>
+        <div className="container relative z-10 mx-auto px-4">
+          <h1 className="font-headline text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
             Publish Your Ideas.
             <br />
-            Build Your Future.
+            <span className="text-primary">Build Your Future.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             A creator platform for writers, founders, and learners to share powerful
@@ -79,44 +85,48 @@ export default function Home() {
       </section>
       
       {/* Stats Section */}
-      <section className="container mx-auto px-4 pb-16 md:pb-24">
-        <div className="grid grid-cols-1 gap-8 border-y border-border py-8 md:grid-cols-3">
-            {stats.map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center gap-2 text-center transition-transform duration-300 hover:scale-105">
-                <stat.Icon className="h-8 w-8 text-primary" />
-                <p className="text-3xl font-bold">{stat.value}</p>
-                <p className="text-muted-foreground">{stat.label}</p>
-              </div>
-            ))}
+      <section className="border-b border-t">
+        <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 divide-y md:grid-cols-3 md:divide-x md:divide-y-0">
+                {stats.map((stat) => (
+                <div key={stat.label} className="flex items-center justify-center gap-4 p-6 transition-colors hover:bg-muted/50">
+                    <stat.Icon className="h-10 w-10 text-primary" />
+                    <div>
+                        <p className="text-3xl font-bold">{stat.value}</p>
+                        <p className="text-muted-foreground">{stat.label}</p>
+                    </div>
+                </div>
+                ))}
+            </div>
         </div>
       </section>
 
       {/* Editor's Picks */}
       <section className="py-16 md:py-24 bg-muted/50">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold md:text-4xl">Editor's Picks</h2>
+          <h2 className="text-center font-headline text-3xl font-bold md:text-4xl">Editor's Picks</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             Hand-picked articles from our editors to get you started.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
-              <Card key={post.id} className="overflow-hidden border-none shadow-none transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-card">
-                <Link href={`/blog/${post.slug}`}>
+              <Card key={post.id} className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
                   <Image
                     src={post.imageUrl}
                     alt={post.title}
                     width={600}
                     height={400}
-                    className="h-48 w-full rounded-md object-cover"
+                    className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={post.imageHint}
                   />
                 </Link>
-                <CardContent className="p-4">
+                <CardContent className="flex flex-1 flex-col p-6">
                   <p className="mb-2 text-sm font-medium text-primary">{post.category}</p>
-                  <h3 className="text-lg font-bold">
+                  <h3 className="font-headline text-lg font-semibold">
                     <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">{post.title}</Link>
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
+                  <p className="mt-2 flex-1 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
                   <div className="mt-4 flex items-center text-xs text-muted-foreground">
                     <span>{post.author}</span>
                     <span className="mx-2">•</span>
@@ -137,20 +147,20 @@ export default function Home() {
       {/* Hustler Stories */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold md:text-4xl">Hustler Stories</h2>
+          <h2 className="text-center font-headline text-3xl font-bold md:text-4xl">Hustler Stories</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             Real success stories from founders, creators, and indie hackers across the web.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {hustlerStories.map((story) => (
-              <Card key={story.id} className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                 <Link href={`/stories/${story.slug}`}>
+              <Card key={story.id} className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                 <Link href={`/stories/${story.slug}`} className="block overflow-hidden">
                     <Image
                         src={story.imageUrl}
                         alt={story.title}
                         width={600}
                         height={400}
-                        className="h-48 w-full object-cover"
+                        className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                         data-ai-hint={story.imageHint}
                     />
                 </Link>
@@ -181,7 +191,7 @@ export default function Home() {
       {/* Services Showcase */}
       <section className="py-16 md:py-24 bg-muted/50">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold md:text-4xl">Most Reliable Services</h2>
+          <h2 className="text-center font-headline text-3xl font-bold md:text-4xl">Most Reliable Services</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             Connect with talented freelancers, engineers, and SaaS builders ready to help you grow.
           </p>
@@ -196,20 +206,20 @@ export default function Home() {
               {serviceProfiles.map((profile) => (
                 <CarouselItem key={profile.id} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <Card className="text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-card h-full">
-                      <CardContent className="flex flex-col items-center p-6 relative">
-                        <Badge variant="secondary" className="absolute top-4 right-4">Most Reliable</Badge>
+                    <Card className="h-full text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                      <CardContent className="flex h-full flex-col items-center p-6">
                         <Image
                           src={profile.imageUrl}
                           alt={profile.name}
                           width={128}
                           height={128}
-                          className="mx-auto h-32 w-32 rounded-full object-cover mt-8"
+                          className="mx-auto h-32 w-32 rounded-full object-cover"
                           data-ai-hint={profile.imageHint}
                         />
                         <h3 className="font-headline mt-4 text-xl font-semibold">{profile.name}</h3>
                         <p className="text-sm text-primary">{profile.role}</p>
-                        <p className="mt-2 text-sm text-muted-foreground flex-1">{profile.description}</p>
+                        <p className="mt-2 flex-1 text-sm text-muted-foreground">{profile.description}</p>
+                        <Badge variant="secondary" className="mt-4">Most Reliable</Badge>
                         <Button asChild variant="outline" className="mt-6">
                           <Link href="/services">View Profile</Link>
                         </Button>
@@ -233,13 +243,13 @@ export default function Home() {
       {/* Testimonials Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold md:text-4xl">What They're Saying</h2>
+          <h2 className="text-center font-headline text-3xl font-bold md:text-4xl">What They're Saying</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             Testimonials from our readers and community members.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             {testimonials.map((testimonial) => (
-              <Card key={testimonial.author} className="border-none bg-muted/50 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <Card key={testimonial.author} className="border-border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <CardContent className="p-0">
                   <blockquote className="text-base italic text-foreground">
                     "{testimonial.quote}"
@@ -267,9 +277,9 @@ export default function Home() {
 
 
       {/* Join Community Section */}
-      <section className="py-16 text-center md:py-24 bg-muted/50">
+      <section className="py-16 text-center md:py-24 bg-primary/5">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold md:text-4xl">Join the Community</h2>
+          <h2 className="font-headline text-3xl font-bold md:text-4xl">Join the Community</h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
             Connect with fellow hustlers, founders, and creators. Share ideas, get feedback, and grow together.
           </p>
