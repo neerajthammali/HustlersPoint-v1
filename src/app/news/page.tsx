@@ -2,6 +2,12 @@ import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { trendingNews } from '@/lib/placeholder-data';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'News',
+  description: 'The latest buzz from tech, startups, and the creator economy, all in one place.',
+};
 
 export default function NewsPage() {
   return (

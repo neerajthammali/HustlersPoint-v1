@@ -3,6 +3,12 @@ import { Button } from '@/components/ui/button';
 import { forumTopics } from '@/lib/placeholder-data';
 import { MessageSquare, PlusCircle } from 'lucide-react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Community',
+  description: 'Join the conversation, ask questions, and share your journey with fellow hustlers.',
+};
 
 export default function CommunityPage() {
   return (

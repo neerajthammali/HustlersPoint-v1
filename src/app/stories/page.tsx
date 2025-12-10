@@ -4,6 +4,12 @@ import { Card, CardContent } from '@/components/ui/card';
 import { getSortedStoriesData } from '@/lib/posts';
 import { Separator } from '@/components/ui/separator';
 import { UserCircle } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Hustler Stories',
+  description: 'Real success stories from founders, creators, and indie hackers across the web.',
+};
 
 export default function StoriesPage() {
   const hustlerStories = getSortedStoriesData();

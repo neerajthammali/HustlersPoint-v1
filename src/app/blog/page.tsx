@@ -5,6 +5,12 @@ import { Badge } from '@/components/ui/badge';
 import { getSortedPostsData } from '@/lib/posts';
 import { CalendarDays, Book, UserCircle, Tag } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'Explore research articles, productivity tips, and growth strategies for young hustlers.',
+};
 
 export default function BlogPage() {
   const blogPosts = getSortedPostsData();

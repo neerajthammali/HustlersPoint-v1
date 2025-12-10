@@ -3,6 +3,12 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { serviceProfiles } from '@/lib/placeholder-data';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Services',
+  description: 'Connect with talented freelancers, engineers, and SaaS builders ready to help you grow.',
+};
 
 export default function ServicesPage() {
   return (
