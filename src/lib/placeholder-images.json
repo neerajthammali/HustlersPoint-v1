@@ -1,3 +1,76 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "blog1",
+      "description": "A pomodoro timer on a desk.",
+      "imageUrl": "https://images.unsplash.com/photo-1588294566715-767838bf5b8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZGVzayUyMHRpbWVyfGVufDB8fHx8MTc2NTM3OTIyOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "desk timer"
+    },
+    {
+      "id": "blog2",
+      "description": "A group of young people collaborating.",
+      "imageUrl": "https://images.unsplash.com/photo-1646608220382-4f20ec40b01d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx5b3VuZyUyMHBlb3BsZXxlbnwwfHx8fDE3NjUzODUxNzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "young people"
+    },
+    {
+      "id": "blog3",
+      "description": "A person working on a laptop in a cafe.",
+      "imageUrl": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsYXB0b3AlMjBjb2ZmZWV8ZW58MHx8fHwxNzY1MzgxOTQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop coffee"
+    },
+    {
+      "id": "story1",
+      "description": "A person working on a laptop at a desk.",
+      "imageUrl": "https://images.unsplash.com/photo-1590870102494-ab6ed490f869?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwZXJzb24lMjBsYXB0b3B8ZW58MHx8fHwxNzY1MzY2MjMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person laptop"
+    },
+    {
+      "id": "story2",
+      "description": "A computer screen showing game development code.",
+      "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnYW1lJTIwZGV2ZWxvcG1lbnR8ZW58MHx8fHwxNzY1MzE0NzY5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "game development"
+    },
+    {
+      "id": "story3",
+      "description": "A team celebrating a successful product launch.",
+      "imageUrl": "https://images.unsplash.com/photo-1622258416260-cc79f4763be4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdGFydHVwJTIwbGF1bmNofGVufDB8fHx8MTc2NTM4NTE3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "startup launch"
+    },
+    {
+      "id": "profile1",
+      "description": "Portrait of a female designer.",
+      "imageUrl": "https://images.unsplash.com/photo-1654512541758-123544b9dc70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZGVzaWduZXIlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjUzNDE3MzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "designer portrait"
+    },
+    {
+      "id": "profile2",
+      "description": "Portrait of a male developer.",
+      "imageUrl": "https://images.unsplash.com/photo-1620216464337-69f08c564cf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkZXZlbG9wZXIlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjUzMjcxOTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "developer portrait"
+    },
+    {
+      "id": "profile3",
+      "description": "Portrait of a female marketer.",
+      "imageUrl": "https://images.unsplash.com/photo-1740989475605-355ada18c3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYXJrZXRlciUyMHBvcnRyYWl0fGVufDB8fHx8MTc2NTM4NTE3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "marketer portrait"
+    },
+    {
+      "id": "news1",
+      "description": "Abstract visualization of code or AI.",
+      "imageUrl": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMGNvZGV8ZW58MHx8fHwxNzY1MzQyMjYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract code"
+    },
+    {
+      "id": "news2",
+      "description": "A person speaking into a microphone for a podcast.",
+      "imageUrl": "https://images.unsplash.com/photo-1668606143326-4d53db523e00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBwb2RjYXN0aW5nfGVufDB8fHx8MTc2NTM4NTE3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person podcasting"
+    },
+    {
+      "id": "news3",
+      "description": "Wind turbines in a field.",
+      "imageUrl": "https://images.unsplash.com/photo-1587168173357-99c7e95fb5cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3aW5kJTIwdHVyYmluZXN8ZW58MHx8fHwxNzY1MzE4MDAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wind turbines"
+    }
+  ]
 }

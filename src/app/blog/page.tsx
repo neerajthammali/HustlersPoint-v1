@@ -1,0 +1,47 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { blogPosts } from '@/lib/placeholder-data';
+
+export default function BlogPage() {
+  return (
+    <div className="container mx-auto px-4 py-12 md:py-16">
+      <div className="text-center">
+        <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl">Blog</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+          Explore research articles, productivity tips, and growth strategies for young hustlers.
+        </p>
+      </div>
+
+      <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {blogPosts.concat(blogPosts).concat(blogPosts).map((post, index) => (
+          <Card key={`${post.id}-${index}`} className="overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+            <Link href="#">
+              <Image
+                src={post.imageUrl.replace(/seed\/\w+/, `seed/blogpage${index}`)}
+                alt={post.title}
+                width={600}
+                height={400}
+                className="h-48 w-full object-cover"
+                data-ai-hint={post.imageHint}
+              />
+            </Link>
+            <CardContent className="p-6">
+              <Badge variant="outline" className="mb-2">{post.category}</Badge>
+              <h3 className="font-headline text-lg font-semibold">
+                <Link href="#" className="hover:text-primary transition-colors">{post.title}</Link>
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
+              <div className="mt-4 flex items-center text-xs text-muted-foreground">
+                <span>{post.author}</span>
+                <span className="mx-2">•</span>
+                <span>{post.date}</span>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}
