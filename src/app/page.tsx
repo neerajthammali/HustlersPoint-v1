@@ -72,7 +72,7 @@ export default function Home() {
             insights and grow an audience.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="group">
               <Link href="/blog">
                 Explore Articles <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
@@ -298,3 +298,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
