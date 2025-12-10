@@ -96,7 +96,7 @@ export default function Home() {
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
               <Card key={post.id} className="overflow-hidden border-none shadow-none transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-card">
-                <Link href="/blog">
+                <Link href={`/blog/${post.id}`}>
                   <Image
                     src={post.imageUrl}
                     alt={post.title}
@@ -109,7 +109,7 @@ export default function Home() {
                 <CardContent className="p-4">
                   <p className="mb-2 text-sm font-medium text-primary">{post.category}</p>
                   <h3 className="text-lg font-bold">
-                    <Link href="/blog" className="hover:text-primary transition-colors">{post.title}</Link>
+                    <Link href={`/blog/${post.id}`} className="hover:text-primary transition-colors">{post.title}</Link>
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
                   <div className="mt-4 flex items-center text-xs text-muted-foreground">
@@ -139,7 +139,7 @@ export default function Home() {
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {hustlerStories.map((story) => (
               <Card key={story.id} className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                 <Link href="/stories">
+                 <Link href={`/stories/${story.id}`}>
                     <Image
                         src={story.imageUrl}
                         alt={story.title}
@@ -155,7 +155,7 @@ export default function Home() {
                     <span>{story.source}</span>
                   </div>
                   <h3 className="font-headline mt-2 text-lg font-semibold">
-                    <Link href="/stories" className="hover:text-primary transition-colors">{story.title}</Link>
+                    <Link href={`/stories/${story.id}`} className="hover:text-primary transition-colors">{story.title}</Link>
                   </h3>
                   <p className="mt-2 flex-1 text-sm text-muted-foreground line-clamp-3">{story.excerpt}</p>
                    <div className="mt-4 text-xs font-medium text-muted-foreground">

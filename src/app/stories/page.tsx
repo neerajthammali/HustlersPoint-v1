@@ -16,7 +16,7 @@ export default function StoriesPage() {
       <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {hustlerStories.concat(hustlerStories).map((story, index) => (
           <Card key={`${story.id}-${index}`} className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
-            <Link href="#">
+            <Link href={`/stories/${story.id}`}>
               <Image
                 src={story.imageUrl.replace(/seed\/\w+/, `seed/storypage${index}`)}
                 alt={story.title}
@@ -32,7 +32,7 @@ export default function StoriesPage() {
                 <span>{story.source}</span>
               </div>
               <h3 className="font-headline mt-2 text-lg font-semibold">
-                <Link href="#" className="hover:text-primary transition-colors">{story.title}</Link>
+                <Link href={`/stories/${story.id}`} className="hover:text-primary transition-colors">{story.title}</Link>
               </h3>
               <p className="mt-2 flex-1 text-sm text-muted-foreground line-clamp-3">{story.excerpt}</p>
               <div className="mt-4 text-xs font-medium text-muted-foreground">

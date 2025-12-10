@@ -17,7 +17,7 @@ export default function BlogPage() {
       <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {blogPosts.concat(blogPosts).concat(blogPosts).map((post, index) => (
           <Card key={`${post.id}-${index}`} className="overflow-hidden transition-shadow duration-300 hover:shadow-xl">
-            <Link href="#">
+            <Link href={`/blog/${post.id}`}>
               <Image
                 src={post.imageUrl.replace(/seed\/\w+/, `seed/blogpage${index}`)}
                 alt={post.title}
@@ -30,7 +30,7 @@ export default function BlogPage() {
             <CardContent className="p-6">
               <Badge variant="outline" className="mb-2">{post.category}</Badge>
               <h3 className="font-headline text-lg font-semibold">
-                <Link href="#" className="hover:text-primary transition-colors">{post.title}</Link>
+                <Link href={`/blog/${post.id}`} className="hover:text-primary transition-colors">{post.title}</Link>
               </h3>
               <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
               <div className="mt-4 flex items-center text-xs text-muted-foreground">
