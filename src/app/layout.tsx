@@ -6,7 +6,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'Hustler Point',
+  title: 'Hustlerspoint!',
   description: 'A creator platform for writers, founders, and learners to share powerful insights and grow an audience.',
 };
 

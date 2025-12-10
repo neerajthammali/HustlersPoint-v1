@@ -24,7 +24,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center">
-          <span className="font-headline text-xl font-bold">Hustler Point</span>
+          <span className="font-headline text-xl font-bold">Hustlerspoint!</span>
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
           {navItems.map((item) => (
@@ -55,7 +55,7 @@ export function Header() {
                   href="/"
                   className="flex items-center gap-2 text-lg font-semibold"
                 >
-                  <span className="font-headline text-xl font-bold">Hustler Point</span>
+                  <span className="font-headline text-xl font-bold">Hustlerspoint!</span>
                 </Link>
                 {navItems.map((item) => (
                   <Link
