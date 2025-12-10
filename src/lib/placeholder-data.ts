@@ -52,39 +52,6 @@ export type Post = {
   imageHint: string;
 };
 
-export const blogPosts: Post[] = [
-  {
-    id: '1',
-    title: 'The Pomodoro Technique: A Guide to Ultimate Productivity',
-    author: 'Jane Doe',
-    category: 'Productivity',
-    date: 'Oct 12, 2023',
-    excerpt: 'Discover how a simple tomato timer can revolutionize the way you work and study.',
-    imageUrl: 'https://picsum.photos/seed/blog1/600/400',
-    imageHint: 'desk timer',
-  },
-  {
-    id: '2',
-    title: 'Decoding Gen Z: What Motivates the Next Generation of Workers',
-    author: 'John Smith',
-    category: 'Research',
-    date: 'Oct 10, 2023',
-    excerpt: 'An in-depth look into the values, aspirations, and work ethics of Gen Z.',
-    imageUrl: 'https://picsum.photos/seed/blog2/600/400',
-    imageHint: 'young people',
-  },
-  {
-    id: '3',
-    title: 'Side Hustles That Pay: From Passion to Profit',
-    author: 'Alex Johnson',
-    category: 'Growth',
-    date: 'Oct 8, 2023',
-    excerpt: 'Turn your hobbies and skills into a profitable side business with these proven ideas.',
-    imageUrl: 'https://picsum.photos/seed/blog3/600/400',
-    imageHint: 'laptop coffee',
-  },
-];
-
 export type Story = {
   id: string;
   title: string;
@@ -96,38 +63,71 @@ export type Story = {
   imageHint: string;
 };
 
-export const hustlerStories: Story[] = [
-  {
-    id: '1',
-    title: 'From 0 to $10k MRR in 6 Months with a Simple SaaS',
-    source: 'LinkedIn',
-    sourceIcon: Linkedin,
-    excerpt: 'How I bootstrapped my way to profitability by solving a niche problem I faced myself...',
-    author: 'Sarah Chen',
-    imageUrl: 'https://picsum.photos/seed/story1/600/400',
-    imageHint: 'person laptop'
-  },
-  {
-    id: '2',
-    title: 'I quit my FAANG job to build an indie game. Best decision ever.',
-    source: 'Reddit',
-    sourceIcon: Bot,
-    excerpt: 'The journey was tough, filled with doubt, but the freedom and fulfillment are unparalleled.',
-    author: 'u/dev_dreamer',
-    imageUrl: 'https://picsum.photos/seed/story2/600/400',
-    imageHint: 'game development'
-  },
-  {
-    id: '3',
-    title: 'Launched on Product Hunt and Hit #1 Product of the Day!',
-    source: 'Product Hunt',
-    sourceIcon: Rss,
-    excerpt: 'Our launch strategy, the mistakes we made, and what we learned from the experience.',
-    author: 'Maker Team',
-    imageUrl: 'https://picsum.photos/seed/story3/600/400',
-    imageHint: 'startup launch'
-  },
-];
+export const blogPosts: Post[] = [
+    {
+      id: 'the-pomodoro-technique',
+      title: 'The Pomodoro Technique: A Guide to Ultimate Productivity',
+      author: 'Jane Doe',
+      category: 'Productivity',
+      date: 'Oct 12, 2023',
+      excerpt: 'Discover how a simple tomato timer can revolutionize the way you work and study.',
+      imageUrl: 'https://picsum.photos/seed/blog1/600/400',
+      imageHint: 'desk timer',
+    },
+    {
+      id: 'decoding-gen-z',
+      title: 'Decoding Gen Z: What Motivates the Next Generation of Workers',
+      author: 'John Smith',
+      category: 'Research',
+      date: 'Oct 10, 2023',
+      excerpt: 'An in-depth look into the values, aspirations, and work ethics of Gen Z.',
+      imageUrl: 'https://picsum.photos/seed/blog2/600/400',
+      imageHint: 'young people',
+    },
+    {
+      id: 'side-hustles-that-pay',
+      title: 'Side Hustles That Pay: From Passion to Profit',
+      author: 'Alex Johnson',
+      category: 'Growth',
+      date: 'Oct 8, 2023',
+      excerpt: 'Turn your hobbies and skills into a profitable side business with these proven ideas.',
+      imageUrl: 'https://picsum.photos/seed/blog3/600/400',
+      imageHint: 'laptop coffee',
+    },
+  ];
+
+  export const hustlerStories: Story[] = [
+    {
+      id: 'from-0-to-10k-mrr',
+      title: 'From 0 to $10k MRR in 6 Months with a Simple SaaS',
+      source: 'LinkedIn',
+      sourceIcon: Linkedin,
+      excerpt: 'How I bootstrapped my way to profitability by solving a niche problem I faced myself...',
+      author: 'Sarah Chen',
+      imageUrl: 'https://picsum.photos/seed/story1/600/400',
+      imageHint: 'person laptop'
+    },
+    {
+      id: 'i-quit-my-faang-job',
+      title: 'I quit my FAANG job to build an indie game. Best decision ever.',
+      source: 'Reddit',
+      sourceIcon: Bot,
+      excerpt: 'The journey was tough, filled with doubt, but the freedom and fulfillment are unparalleled.',
+      author: 'u/dev_dreamer',
+      imageUrl: 'https://picsum.photos/seed/story2/600/400',
+      imageHint: 'game development'
+    },
+    {
+      id: 'launched-on-product-hunt',
+      title: 'Launched on Product Hunt and Hit #1 Product of the Day!',
+      source: 'Product Hunt',
+      sourceIcon: Rss,
+      excerpt: 'Our launch strategy, the mistakes we made, and what we learned from the experience.',
+      author: 'Maker Team',
+      imageUrl: 'https://picsum.photos/seed/story3/600/400',
+      imageHint: 'startup launch'
+    },
+  ];
 
 
 export type ServiceProfile = {

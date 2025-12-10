@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import { hustlerStories } from '@/lib/placeholder-data';
 import { PopularPosts } from '@/components/shared/popular-posts';
 import { BlogIdeasPoll } from '@/components/shared/blog-ideas-poll';
+import { getSortedStoriesData } from '@/lib/posts';
 
 export default function StoriesPage() {
+  const hustlerStories = getSortedStoriesData();
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <div className="text-center">
@@ -17,9 +18,9 @@ export default function StoriesPage() {
 
       <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-12">
         <div className="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {hustlerStories.concat(hustlerStories).map((story, index) => (
-            <Card key={`${story.id}-${index}`} className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
-                <Link href={`/stories/${story.id}`}>
+            {hustlerStories.map((story, index) => (
+            <Card key={story.id} className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                <Link href={`/stories/${story.slug}`}>
                 <Image
                     src={story.imageUrl.replace(/seed\/\w+/, `seed/storypage${index}`)}
                     alt={story.title}
@@ -35,7 +36,7 @@ export default function StoriesPage() {
                     <span>{story.source}</span>
                 </div>
                 <h3 className="font-headline mt-2 text-lg font-semibold">
-                    <Link href={`/stories/${story.id}`} className="hover:text-primary transition-colors">{story.title}</Link>
+                    <Link href={`/stories/${story.slug}`} className="hover:text-primary transition-colors">{story.title}</Link>
                 </h3>
                 <p className="mt-2 flex-1 text-sm text-muted-foreground line-clamp-3">{story.excerpt}</p>
                 <div className="mt-4 text-xs font-medium text-muted-foreground">

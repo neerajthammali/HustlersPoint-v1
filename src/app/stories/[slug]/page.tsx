@@ -1,14 +1,21 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { hustlerStories } from '@/lib/placeholder-data';
 import { Button } from '@/components/ui/button';
 import { PopularPosts } from '@/components/shared/popular-posts';
 import { BlogIdeasPoll } from '@/components/shared/blog-ideas-poll';
 import { CommentSection } from '@/components/shared/comment-section';
+import { getStoryData, getSortedStoriesData } from '@/lib/posts';
 
-export default function StoryPage({ params }: { params: { slug: string } }) {
-  const story = hustlerStories.find((s) => s.id === params.slug);
+export async function generateStaticParams() {
+  const stories = getSortedStoriesData();
+  return stories.map((story) => ({
+    slug: story.slug,
+  }));
+}
+
+export default async function StoryPage({ params }: { params: { slug: string } }) {
+  const story = await getStoryData(params.slug);
 
   if (!story) {
     notFound();
@@ -42,17 +49,12 @@ export default function StoryPage({ params }: { params: { slug: string } }) {
             />
           </div>
 
+          <div 
+            className="prose prose-lg mx-auto max-w-none dark:prose-invert"
+            dangerouslySetInnerHTML={{ __html: story.contentHtml }}
+          />
+
           <div className="prose prose-lg mx-auto max-w-none dark:prose-invert">
-            <p className="lead text-xl text-muted-foreground">{story.excerpt}</p>
-            <p>
-                This is a placeholder for the full story content. In a real application, you would fetch this content from a CMS or a database. The story would elaborate on the journey, the challenges faced, and the lessons learned. It would provide actionable insights and inspiration for other hustlers.
-            </p>
-            <p>
-                For example, in the story about bootstrapping a SaaS to $10k MRR, the author might detail their process for finding a profitable niche, validating the idea, building the MVP, and acquiring the first customers. They could share specific strategies, tools, and metrics that were crucial to their success.
-            </p>
-            <p>
-                Similarly, a story about quitting a FAANG job to build an indie game could delve into the creative process, the technical challenges, and the emotional rollercoaster of entrepreneurship. It would offer a realistic and inspiring look at what it takes to follow your passion and build something of your own.
-            </p>
             <Button asChild className="mt-8 no-underline">
                 <Link href="/stories">Back to All Stories</Link>
             </Button>
