@@ -4,6 +4,35 @@ import { Badge } from '@/components/ui/badge';
 import { CommentSection } from '@/components/shared/comment-section';
 import { getPostData, getSortedPostsData } from '@/lib/posts';
 import { NewsletterBanner } from '@/components/layout/newsletter-banner';
+import type { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const post = await getPostData(params.slug);
+
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+      description: 'The post you are looking for does not exist.',
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      images: [
+        {
+          url: post.imageUrl,
+          width: 1200,
+          height: 600,
+          alt: post.title,
+        },
+      ],
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const posts = getSortedPostsData();
@@ -43,6 +72,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               height={600}
               className="rounded-lg object-cover"
               data-ai-hint={post.imageHint}
+              priority
             />
           </div>
 

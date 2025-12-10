@@ -5,6 +5,36 @@ import { Button } from '@/components/ui/button';
 import { CommentSection } from '@/components/shared/comment-section';
 import { getStoryData, getSortedStoriesData } from '@/lib/posts';
 import { NewsletterBanner } from '@/components/layout/newsletter-banner';
+import type { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const story = await getStoryData(params.slug);
+
+  if (!story) {
+    return {
+      title: 'Story Not Found',
+      description: 'The story you are looking for does not exist.',
+    };
+  }
+
+  return {
+    title: story.title,
+    description: story.excerpt,
+    openGraph: {
+      title: story.title,
+      description: story.excerpt,
+      images: [
+        {
+          url: story.imageUrl,
+          width: 1200,
+          height: 600,
+          alt: story.title,
+        },
+      ],
+    },
+  };
+}
+
 
 export async function generateStaticParams() {
   const stories = getSortedStoriesData();
@@ -45,6 +75,7 @@ export default async function StoryPage({ params }: { params: { slug: string } }
               height={600}
               className="rounded-lg object-cover"
               data-ai-hint={story.imageHint}
+              priority
             />
           </div>
 

@@ -20,9 +20,13 @@ export function CommentSection({ articleId }: { articleId: string }) {
   const storageKey = `comments-${articleId}`
 
   useEffect(() => {
-    const storedComments = localStorage.getItem(storageKey)
-    if (storedComments) {
-      setComments(JSON.parse(storedComments))
+    try {
+        const storedComments = localStorage.getItem(storageKey)
+        if (storedComments) {
+            setComments(JSON.parse(storedComments))
+        }
+    } catch (error) {
+        console.error("Failed to parse comments from localStorage", error)
     }
   }, [storageKey])
 
@@ -43,14 +47,23 @@ export function CommentSection({ articleId }: { articleId: string }) {
       avatar: `/images/avatar.png`, // Generic avatar
     }
 
-    const updatedComments = [...comments, comment]
-    setComments(updatedComments)
-    localStorage.setItem(storageKey, JSON.stringify(updatedComments))
-    setNewComment("")
-    toast({
-      title: "Comment Added",
-      description: "Your comment has been posted.",
-    })
+    try {
+        const updatedComments = [...comments, comment]
+        setComments(updatedComments)
+        localStorage.setItem(storageKey, JSON.stringify(updatedComments))
+        setNewComment("")
+        toast({
+        title: "Comment Added",
+        description: "Your comment has been posted.",
+        })
+    } catch (error) {
+        console.error("Failed to save comment to localStorage", error)
+        toast({
+            variant: "destructive",
+            title: "Error",
+            description: "Failed to save your comment.",
+        })
+    }
   }
 
   return (

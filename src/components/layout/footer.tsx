@@ -17,7 +17,7 @@ const footerNav = [
             { label: "Productivity", href: "#" },
             { label: "Tech & AI", href: "#" },
             { label: "Growth", href: "#" },
-            { label: "Community", href: "#" },
+            { label: "Community", href: "/community" },
             { label: "News", href: "/news" },
         ]
     }
@@ -56,16 +56,15 @@ export function Footer() {
                  <h3 className="font-semibold text-foreground">Connect</h3>
                  <div className="mt-4 flex space-x-4">
                     {socialLinks.map(({Icon, href, label}) => (
-                         <Link key={label} href={href} className="text-muted-foreground hover:text-foreground">
+                         <Link key={label} href={href} className="text-muted-foreground hover:text-foreground" aria-label={label}>
                             <Icon className="h-5 w-5" />
-                            <span className="sr-only">{label}</span>
                         </Link>
                     ))}
                  </div>
             </div>
         </div>
         <div className="mt-8 border-t pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Hustler Point. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Hustlerspoint!. All rights reserved.</p>
           <div className="flex gap-4 mt-4 md:mt-0">
              <Link href="#" className="hover:text-foreground">Privacy Policy</Link>
              <Link href="#" className="hover:text-foreground">Terms of Service</Link>

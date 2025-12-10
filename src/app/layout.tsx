@@ -1,13 +1,41 @@
 import type { Metadata } from 'next';
+import { Poppins, Montserrat } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
+import { cn } from '@/lib/utils';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+  weight: ['400', '500', '600', '700'],
+});
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-montserrat',
+  weight: ['600', '700', '800', '900'],
+});
+
 
 export const metadata: Metadata = {
-  title: 'Hustlerspoint!',
+  title: {
+    default: 'Hustlerspoint! - Publish Your Ideas. Build Your Future.',
+    template: '%s | Hustlerspoint!',
+  },
   description: 'A creator platform for writers, founders, and learners to share powerful insights and grow an audience.',
+  openGraph: {
+    title: 'Hustlerspoint!',
+    description: 'A creator platform for writers, founders, and learners to share powerful insights and grow an audience.',
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://hustlerspoint.com', // Replace with your actual domain
+    siteName: 'Hustlerspoint!',
+  },
 };
 
 export default function RootLayout({
@@ -17,15 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-body antialiased">
+      <body className={cn('font-body antialiased', poppins.variable, montserrat.variable)}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
