@@ -5,6 +5,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import { Post, Story } from './placeholder-data';
 import { storyIconMapper } from './icon-mappers/story-icon-mapper';
+import { getAuthorData, getSortedAuthorsData } from './authors';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 const storiesDirectory = path.join(process.cwd(), 'content/stories');
@@ -96,5 +97,10 @@ export function getSortedStoriesData(): AllStoriesData {
       id: slug,
       sourceIcon: storyIconMapper(source),
     } as Omit<Story, 'id'> & { id: string, slug: string, contentHtml: string };
+  }
+
+  export function getPostsByAuthor(authorSlug: string) {
+    const allPosts = getSortedPostsData();
+    return allPosts.filter(post => post.authorSlug === authorSlug);
   }
   

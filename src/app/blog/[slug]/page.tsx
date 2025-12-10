@@ -5,6 +5,7 @@ import { CommentSection } from '@/components/shared/comment-section';
 import { getPostData, getSortedPostsData } from '@/lib/posts';
 import { NewsletterBanner } from '@/components/layout/newsletter-banner';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = await getPostData(params.slug);
@@ -58,7 +59,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               {post.title}
             </h1>
             <div className="flex items-center justify-center space-x-4 text-muted-foreground">
-              <span>By {post.author}</span>
+              <span>By <Link href={`/authors/${post.authorSlug}`} className="hover:text-primary">{post.author}</Link></span>
               <span>•</span>
               <span>{post.date}</span>
             </div>

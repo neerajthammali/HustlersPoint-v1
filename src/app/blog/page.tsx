@@ -68,7 +68,7 @@ export default function BlogPage() {
              <div className="flex items-center justify-between p-4 text-xs text-muted-foreground">
                 <div className="flex items-center gap-2">
                     <UserCircle className="h-4 w-4" />
-                    <span>{post.author}</span>
+                    <Link href={`/authors/${post.authorSlug}`} className="hover:text-primary">{post.author}</Link>
                 </div>
                 <div className="flex items-center gap-2">
                     <CalendarDays className="h-4 w-4" />

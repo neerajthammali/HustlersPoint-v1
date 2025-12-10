@@ -1,6 +1,8 @@
 ---
 title: 'The Pomodoro Technique: A Guide to Ultimate Productivity'
 author: 'Jane Doe'
+authorSlug: 'jane-doe'
+authorBio: 'Jane is a productivity expert and writer focused on helping people work smarter, not harder.'
 category: 'Productivity'
 date: '2023-10-12'
 excerpt: 'Discover how a simple tomato timer can revolutionize the way you work and study.'

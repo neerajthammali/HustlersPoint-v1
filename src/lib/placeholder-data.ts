@@ -45,6 +45,8 @@ export type Post = {
   id: string;
   title: string;
   author: string;
+  authorSlug: string;
+  authorBio: string;
   category: string;
   date: string;
   excerpt: string;
@@ -68,6 +70,8 @@ export const blogPosts: Post[] = [
       id: 'the-pomodoro-technique',
       title: 'The Pomodoro Technique: A Guide to Ultimate Productivity',
       author: 'Jane Doe',
+      authorSlug: 'jane-doe',
+      authorBio: 'Jane is a productivity expert and writer focused on helping people work smarter, not harder.',
       category: 'Productivity',
       date: 'Oct 12, 2023',
       excerpt: 'Discover how a simple tomato timer can revolutionize the way you work and study.',
@@ -78,6 +82,8 @@ export const blogPosts: Post[] = [
       id: 'decoding-gen-z',
       title: 'Decoding Gen Z: What Motivates the Next Generation of Workers',
       author: 'John Smith',
+      authorSlug: 'john-smith',
+      authorBio: 'John is a market researcher and sociologist specializing in generational trends and workplace dynamics.',
       category: 'Research',
       date: 'Oct 10, 2023',
       excerpt: 'An in-depth look into the values, aspirations, and work ethics of Gen Z.',
@@ -88,6 +94,8 @@ export const blogPosts: Post[] = [
       id: 'side-hustles-that-pay',
       title: 'Side Hustles That Pay: From Passion to Profit',
       author: 'Alex Johnson',
+      authorSlug: 'alex-johnson',
+      authorBio: 'Alex is a serial entrepreneur and author who loves sharing practical advice for starting and growing a business.',
       category: 'Growth',
       date: 'Oct 8, 2023',
       excerpt: 'Turn your hobbies and skills into a profitable side business with these proven ideas.',

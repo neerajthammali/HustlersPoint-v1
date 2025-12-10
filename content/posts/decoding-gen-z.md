@@ -1,6 +1,8 @@
 ---
 title: 'Decoding Gen Z: What Motivates the Next Generation of Workers'
 author: 'John Smith'
+authorSlug: 'john-smith'
+authorBio: 'John is a market researcher and sociologist specializing in generational trends and workplace dynamics.'
 category: 'Research'
 date: '2023-10-10'
 excerpt: 'An in-depth look into the values, aspirations, and work ethics of Gen Z.'
