@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Github, Instagram } from "lucide-react"
+import { Github, Instagram, Globe } from "lucide-react"
 
 const footerNav = [
     {
@@ -24,6 +24,7 @@ const footerNav = [
 const socialLinks = [
     { Icon: Github, href: "https://github.com/neerajthammali", label: "Github" },
     { Icon: Instagram, href: "https://instagram.com/neerajthammali", label: "Instagram" },
+    { Icon: Globe, href: "https://neerajthammmali.vercel.app/", label: "Portfolio" },
 ]
 
 
