@@ -7,12 +7,11 @@ export function GiscusComments() {
   const ref = useRef<HTMLDivElement>(null);
   const { resolvedTheme } = useTheme();
 
-  // This is a placeholder. Replace with your actual Giscus config.
-  // You can get these values from the Giscus app homepage.
-  const repo = 'YOUR_GITHUB_REPO'; // e.g., 'user/repo'
-  const repoId = 'YOUR_REPO_ID';
-  const category = 'YOUR_CATEGORY_NAME'; // e.g., 'Announcements'
-  const categoryId = 'YOUR_CATEGORY_ID';
+  const repo = process.env.NEXT_PUBLIC_GISCUS_REPO;
+  const repoId = process.env.NEXT_PUBLIC_GISCUS_REPO_ID;
+  const category = process.env.NEXT_PUBLIC_GISCUS_CATEGORY;
+  const categoryId = process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID;
+
   const mapping = 'pathname';
   const reactionsEnabled = '1';
   const emitMetadata = '0';
@@ -20,7 +19,7 @@ export function GiscusComments() {
   const lang = 'en';
 
   useEffect(() => {
-    if (!ref.current || ref.current.hasChildNodes()) {
+    if (!ref.current || ref.current.hasChildNodes() || !repo || !repoId || !category || !categoryId) {
       return;
     }
 
@@ -44,8 +43,6 @@ export function GiscusComments() {
     ref.current.appendChild(script);
 
     return () => {
-        // Clean up the script when the component unmounts
-        // to avoid issues with hot-reloading in development.
         while (ref.current?.firstChild) {
             ref.current.removeChild(ref.current.firstChild);
         }
@@ -53,7 +50,6 @@ export function GiscusComments() {
   }, [repo, repoId, category, categoryId, mapping, reactionsEnabled, emitMetadata, inputPosition, lang, resolvedTheme]);
 
 
-  // Update giscus theme when the app theme changes
   useEffect(() => {
     const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
     if (iframe) {
@@ -61,6 +57,14 @@ export function GiscusComments() {
     }
   }, [resolvedTheme]);
 
+  if (!repo || !repoId || !category || !categoryId) {
+    return (
+        <div className="text-center text-muted-foreground mt-16">
+            <p>Commenting is not configured.</p>
+            <p className="text-sm">Please set the Giscus environment variables to enable comments.</p>
+        </div>
+    );
+  }
 
   return <section ref={ref} className="mt-16" />;
 }

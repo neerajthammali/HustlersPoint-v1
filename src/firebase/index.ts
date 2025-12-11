@@ -4,6 +4,12 @@ import { getFirestore } from 'firebase/firestore';
 import { firebaseConfig } from './config';
 
 function initializeFirebase(config: FirebaseOptions) {
+    // Check if all required config values are present
+    if (!config.apiKey || config.apiKey === 'your-api-key') {
+        console.warn('Firebase configuration is incomplete. Please check your environment variables.');
+        return { app: null, auth: null, firestore: null };
+    }
+
     const app = !getApps().length ? initializeApp(config) : getApp();
     const auth = getAuth(app);
     const firestore = getFirestore(app);
@@ -11,7 +17,7 @@ function initializeFirebase(config: FirebaseOptions) {
     return { app, auth, firestore };
 }
 
-const { app, auth, firestore } = initializeFirebase(firebaseConfig);
+const { app, auth, firestore } = initializeFirebase(firebaseConfig as FirebaseOptions);
 
 export { app, auth, firestore };
 

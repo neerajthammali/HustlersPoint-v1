@@ -1,16 +1,24 @@
+'use client';
 import type { Metadata } from 'next';
+import { useState, useEffect } from 'react';
 
-export const metadata: Metadata = {
-  title: 'Terms of Service',
-  description: 'Read the terms and conditions for using HustlersPo!nt.',
-};
+// export const metadata: Metadata = {
+//   title: 'Terms of Service',
+//   description: 'Read the terms and conditions for using HustlersPo!nt.',
+// };
 
 export default function TermsPage() {
+  const [lastUpdated, setLastUpdated] = useState('');
+
+  useEffect(() => {
+    setLastUpdated(new Date().toLocaleDateString());
+  }, []);
+
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
         <h1>Terms of Service</h1>
-        <p className="lead">Last updated: {new Date().toLocaleDateString()}</p>
+        <p className="lead">Last updated: {lastUpdated}</p>
         
         <p>Please read these terms of service carefully before using our website operated by HustlersPo!nt.</p>
 

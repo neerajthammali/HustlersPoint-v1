@@ -1,16 +1,24 @@
+'use client';
 import type { Metadata } from 'next';
+import { useState, useEffect } from 'react';
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description: 'Learn how HustlersPo!nt handles your data and respects your privacy.',
-};
+// export const metadata: Metadata = { // Metadata must be defined in a server component
+//   title: 'Privacy Policy',
+//   description: 'Learn how HustlersPo!nt handles your data and respects your privacy.',
+// };
 
 export default function PrivacyPage() {
+  const [lastUpdated, setLastUpdated] = useState('');
+
+  useEffect(() => {
+    setLastUpdated(new Date().toLocaleDateString());
+  }, []);
+
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
         <h1>Privacy Policy</h1>
-        <p className="lead">Last updated: {new Date().toLocaleDateString()}</p>
+        <p className="lead">Last updated: {lastUpdated}</p>
         
         <p>Your privacy is important to us. It is HustlersPo!nt's policy to respect your privacy regarding any information we may collect from you across our website.</p>
 
