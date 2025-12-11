@@ -53,7 +53,7 @@ export default function StoriesClientPage({ allStories }: { allStories: Story[] 
           {filteredStories.map((story) => {
             const Icon = storyIconMapper(story.source);
             return (
-                <Card key={story.id} className="group flex flex-col overflow-hidden">
+                <Card key={story.id} className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <Link href={`/stories/${story.slug}`} className="block overflow-hidden">
                     <Image
                         src={story.imageUrl}

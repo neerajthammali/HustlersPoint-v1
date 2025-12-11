@@ -22,7 +22,7 @@ export default function ServicesPage() {
 
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {serviceProfiles.concat(serviceProfiles).concat(serviceProfiles).map((profile, index) => (
-        <Card key={`${profile.id}-${index}`} className="text-center transition-shadow duration-300 hover:shadow-xl">
+        <Card key={`${profile.id}-${index}`} className="text-center transition-shadow duration-300 hover:shadow-xl hover:-translate-y-1">
             <CardContent className="p-6">
             <Image
                 src={profile.imageUrl}

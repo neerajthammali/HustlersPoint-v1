@@ -69,7 +69,7 @@ export default function BlogClientPage({ allPosts }: { allPosts: Post[] }) {
           {filteredPosts.map((post) => (
             <Card
               key={post.id}
-              className="group flex flex-col overflow-hidden"
+              className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
                 <Image
