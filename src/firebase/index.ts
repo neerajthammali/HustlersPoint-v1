@@ -21,7 +21,8 @@ const { app, auth, firestore } = initializeFirebase(firebaseConfig as FirebaseOp
 
 export { app, auth, firestore };
 
-export { FirebaseProvider, FirebaseClientProvider, useFirebase, useFirebaseApp, useAuth, useFirestore } from './provider';
+export { FirebaseProvider, useFirebase, useFirebaseApp, useAuth, useFirestore } from './provider';
+export { FirebaseClientProvider } from './client-provider';
 export { useUser } from './auth/use-user';
 export { useDoc } from './firestore/use-doc';
 export { useCollection } from './firestore/use-collection';
