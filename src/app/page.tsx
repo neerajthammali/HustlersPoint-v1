@@ -127,7 +127,7 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
-              <Card key={post.id} className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <Card key={post.id} className="group flex flex-col overflow-hidden">
                 <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
                   <Image
                     src={post.imageUrl}
@@ -183,7 +183,7 @@ export default function Home() {
             {hustlerStories.map((story) => {
                 const Icon = storyIconMapper(story.source);
                 return (
-                    <Card key={story.id} className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <Card key={story.id} className="group flex flex-col overflow-hidden">
                         <Link href={`/stories/${story.slug}`} className="block overflow-hidden">
                             <Image
                                 src={story.imageUrl}
@@ -241,8 +241,8 @@ export default function Home() {
               {serviceProfiles.map((profile) => (
                 <CarouselItem key={profile.id} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <Card className="h-full text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                      <CardContent className="flex h-full flex-col items-center p-6 pt-6">
+                    <Card className="h-full text-center">
+                      <CardContent className="flex h-full flex-col items-center p-6">
                         <Image
                           src={profile.imageUrl}
                           alt={profile.name}
@@ -284,7 +284,7 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             {testimonials.map((testimonial) => (
-              <Card key={testimonial.author} className="border-border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <Card key={testimonial.author} className="border-border bg-card p-6 shadow-sm">
                 <CardContent className="p-0">
                   <blockquote className="text-base italic text-foreground">
                     "{testimonial.quote}"
