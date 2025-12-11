@@ -1,21 +1,10 @@
 "use client";
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { FileQuestion } from 'lucide-react';
 
 export default function NotFound() {
-  const router = useRouter();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      router.push('/');
-    }, 5000); // 5-second delay
-
-    return () => clearTimeout(timer); // Cleanup timer on component unmount
-  }, [router]);
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
@@ -25,7 +14,7 @@ export default function NotFound() {
                 404 - Page Not Found
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-lg text-muted-foreground">
-                Oops! The page you're looking for doesn't seem to exist. You will be redirected to the homepage shortly.
+                Oops! The page you're looking for doesn't seem to exist.
             </p>
             <Button asChild className="mt-8">
                 <Link href="/">Go Back to Homepage</Link>
