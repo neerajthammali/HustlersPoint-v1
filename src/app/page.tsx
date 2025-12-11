@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, BookOpen, Lightbulb, Users, CalendarDays, Book, UserCircle, Tag } from 'lucide-react';
+import { ArrowRight, BookOpen, Lightbulb, Users, CalendarDays, Book, UserCircle, Tag, Share2, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -20,9 +20,11 @@ import { Badge } from '@/components/ui/badge';
 
 
 const stats = [
-  { value: '12+', label: 'Blogs', Icon: BookOpen },
   { value: '12K+', label: 'Impressions', Icon: Lightbulb },
-  { value: '500+', label: 'Subscribers', Icon: Users },
+  { value: '12+', label: 'Blogs', Icon: BookOpen },
+  { value: '2K+', label: 'Subscribers', Icon: Users },
+  { value: '2.9m+', label: 'Social Reach', Icon: Share2 },
+  { value: '10+', label: 'Hustler Stories', Icon: Sparkles },
 ];
 
 const testimonials = [
