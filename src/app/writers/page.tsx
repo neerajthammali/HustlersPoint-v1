@@ -23,7 +23,7 @@ export default function WritersPage() {
 
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {authors.map((author) => (
-          <Card key={author.slug} className="group overflow-hidden rounded-xl text-center shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+          <Card key={author.slug} className="group overflow-hidden text-center">
             <Link href={`/authors/${author.slug}`} className="flex flex-col h-full">
               <CardContent className="flex flex-1 flex-col items-center p-6">
                 <Image

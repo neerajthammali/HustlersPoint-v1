@@ -127,7 +127,7 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
-              <Card key={post.id} className="group flex flex-col overflow-hidden rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <Card key={post.id} className="group flex flex-col overflow-hidden">
                 <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
                   <Image
                     src={post.imageUrl}
@@ -183,7 +183,7 @@ export default function Home() {
             {hustlerStories.map((story) => {
                 const Icon = storyIconMapper(story.source);
                 return (
-                    <Card key={story.id} className="group flex flex-col overflow-hidden rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <Card key={story.id} className="group flex flex-col overflow-hidden">
                         <Link href={`/stories/${story.slug}`} className="block overflow-hidden">
                             <Image
                                 src={story.imageUrl}
@@ -195,7 +195,7 @@ export default function Home() {
                             />
                         </Link>
                         <CardContent className="flex flex-1 flex-col p-4">
-                        <h3 className="font-headline mt-3 text-lg font-semibold">
+                        <h3 className="font-headline text-lg font-semibold">
                             <Link href={`/stories/${story.slug}`} className="hover:text-primary transition-colors">{story.title}</Link>
                         </h3>
                         <p className="mt-2 flex-1 text-sm text-muted-foreground line-clamp-3">{story.excerpt}</p>

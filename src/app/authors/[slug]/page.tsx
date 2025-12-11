@@ -81,7 +81,7 @@ export default function AuthorPage({ params }: { params: { slug: string } }) {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {authorPosts.map((post) => (
-            <Card key={post.id} className="group flex flex-col overflow-hidden rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+            <Card key={post.id} className="group flex flex-col overflow-hidden">
               <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
                 <Image
                   src={post.imageUrl}
