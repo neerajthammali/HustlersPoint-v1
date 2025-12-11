@@ -100,9 +100,9 @@ export default function Home() {
       {/* Stats Section */}
       <section className="border-b border-t">
         <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 divide-y md:grid-cols-3 md:divide-x md:divide-y-0">
-                {stats.map((stat) => (
-                <div key={stat.label} className="flex items-center justify-center gap-4 p-6 transition-colors hover:bg-muted/50">
+            <div className="flex overflow-x-auto py-2 md:grid md:grid-cols-3 md:divide-x md:py-0">
+                {stats.map((stat, index) => (
+                <div key={stat.label} className="flex min-w-[200px] flex-1 items-center justify-center gap-4 p-6 transition-colors hover:bg-muted/50 md:min-w-0">
                     <stat.Icon className="h-10 w-10 text-primary" />
                     <div>
                         <p className="text-3xl font-bold">{stat.value}</p>
