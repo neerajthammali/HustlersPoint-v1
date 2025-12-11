@@ -33,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: URL, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 1.0 },
     { url: `${URL}/about`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 },
     { url: `${URL}/blog`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.9 },
+    { url: `${URL}/authors`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.7 },
     { url: `${URL}/contact`, lastModified: new Date(), changeFrequency: 'yearly' as const, priority: 0.3 },
     { url: `${URL}/services`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 },
     { url: `${URL}/stories`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.8 },
