@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { serviceProfiles } from '@/lib/placeholder-data';
+import { getSortedServiceProfiles } from '@/lib/services';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
+    const serviceProfiles = getSortedServiceProfiles();
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <div className="text-center">
@@ -22,7 +23,7 @@ export default function ServicesPage() {
 
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {serviceProfiles.concat(serviceProfiles).concat(serviceProfiles).map((profile, index) => (
-        <Card key={`${profile.id}-${index}`} className="text-center transition-shadow duration-300 hover:shadow-xl hover:-translate-y-1">
+        <Card key={`${profile.id}-${index}`} className="text-center">
             <CardContent className="p-6">
             <Image
                 src={profile.imageUrl}

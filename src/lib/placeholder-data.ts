@@ -83,43 +83,6 @@ export type Story = {
     },
   ];
 
-
-export type ServiceProfile = {
-  id: string;
-  name: string;
-  role: string;
-  description: string;
-  imageUrl: string;
-  imageHint: string;
-}
-
-export const serviceProfiles: ServiceProfile[] = [
-  {
-    id: '1',
-    name: 'Emily Carter',
-    role: 'Freelance UI/UX Designer',
-    description: 'Crafting intuitive and beautiful digital experiences for startups and scale-ups.',
-    imageUrl: PlaceHolderImages.find(p => p.id === 'profile1')?.imageUrl || '/images/profile1.jpg',
-    imageHint: PlaceHolderImages.find(p => p.id === 'profile1')?.imageHint || 'designer portrait',
-  },
-  {
-    id: '2',
-    name: 'Ben "SaaS" Miller',
-    role: 'SaaS Builder',
-    description: 'Building micro-SaaS solutions that solve real-world business problems efficiently.',
-    imageUrl: PlaceHolderImages.find(p => p.id === 'profile2')?.imageUrl || '/images/profile2.jpg',
-    imageHint: PlaceHolderImages.find(p => p.id === 'profile2')?.imageHint || 'developer portrait',
-  },
-  {
-    id: '3',
-    name: 'Chloe Davis',
-    role: 'Growth Marketer',
-    description: 'Helping businesses find their first 1000 customers with data-driven strategies.',
-    imageUrl: PlaceHolderImages.find(p => p.id === 'profile3')?.imageUrl || '/images/profile3.jpg',
-    imageHint: PlaceHolderImages.find(p => p.id === 'profile3')?.imageHint || 'marketer portrait',
-  },
-];
-
 export type NewsArticle = {
   id: string;
   title: string;

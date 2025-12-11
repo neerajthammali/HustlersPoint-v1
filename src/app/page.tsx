@@ -12,7 +12,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { getSortedPostsData, getSortedStoriesData } from '@/lib/posts';
-import { serviceProfiles } from '@/lib/placeholder-data';
+import { getSortedServiceProfiles } from '@/lib/services';
 import { Badge } from '@/components/ui/badge';
 import { storyIconMapper } from '@/lib/icon-mappers/story-icon-mapper';
 import { CategoryIcon } from '@/components/shared/category-icon';
@@ -54,6 +54,7 @@ const testimonials = [
 export default function Home() {
   const blogPosts = getSortedPostsData().slice(0, 3);
   const hustlerStories = getSortedStoriesData().slice(0, 3);
+  const serviceProfiles = getSortedServiceProfiles();
 
   return (
     <div className="flex flex-col">
@@ -112,7 +113,7 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
-              <Card key={post.id} className="group flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl hover:-translate-y-1">
+              <Card key={post.id} className="group flex flex-col overflow-hidden">
                 <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
                   <Image
                     src={post.imageUrl}
@@ -168,7 +169,7 @@ export default function Home() {
             {hustlerStories.map((story) => {
                 const Icon = storyIconMapper(story.source);
                 return (
-                    <Card key={story.id} className="group flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <Card key={story.id} className="group flex flex-col overflow-hidden">
                         <Link href={`/stories/${story.slug}`} className="block overflow-hidden">
                             <Image
                                 src={story.imageUrl}
