@@ -112,7 +112,7 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
-              <Card key={post.id} className="group flex flex-col overflow-hidden">
+              <Card key={post.id} className="group flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl hover:-translate-y-1">
                 <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
                   <Image
                     src={post.imageUrl}
@@ -168,7 +168,7 @@ export default function Home() {
             {hustlerStories.map((story) => {
                 const Icon = storyIconMapper(story.source);
                 return (
-                    <Card key={story.id} className="group flex flex-col overflow-hidden">
+                    <Card key={story.id} className="group flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl hover:-translate-y-1">
                         <Link href={`/stories/${story.slug}`} className="block overflow-hidden">
                             <Image
                                 src={story.imageUrl}
@@ -291,27 +291,6 @@ export default function Home() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* Join Community Section */}
-      <section className="py-16 text-center md:py-24 bg-primary/5">
-        <div className="container mx-auto px-4">
-          <h2 className="font-headline text-3xl font-bold md:text-4xl">Join the Community</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Connect with fellow hustlers, founders, and creators. Share ideas, get feedback, and grow together.
-          </p>
-          <div className="mt-8 flex justify-center gap-4">
-             <Button asChild size="lg">
-                <Link href="/community">Join The Forums</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-                <Link href="#">
-                  Join Discord
-                </Link>
-            </Button>
           </div>
         </div>
       </section>

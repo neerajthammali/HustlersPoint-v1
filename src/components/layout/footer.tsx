@@ -16,8 +16,6 @@ const footerNav = [
         items: [
             { label: "About Us", href: "/about" },
             { label: "Contact", href: "/contact" },
-            { label: "Community", href: "/community" },
-            { label: "News", href: "/news" },
             { label: "Submit", href: "/submit" },
         ]
     }

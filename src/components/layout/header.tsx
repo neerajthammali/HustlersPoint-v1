@@ -23,9 +23,7 @@ const navItems = [
   { href: "/blog", label: "Articles" },
   { href: "/stories", label: "Stories" },
   { href: "/services", label: "Services" },
-  { href: "/authors", label: "Writers" },
-  { href: "/community", label: "Community" },
-  { href: "/news", label: "News" },
+  { href: "/authors", label: "Authors" },
 ]
 
 export function Header() {
