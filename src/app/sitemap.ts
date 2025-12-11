@@ -1,10 +1,9 @@
-import { MetadataRoute } from 'next';
 import { getSortedPostsData, getSortedStoriesData } from '@/lib/posts';
 import { getSortedAuthorsData } from '@/lib/authors';
 
 const URL = 'https://hustlerspoint.com'; // Replace with your actual domain
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default function sitemap() {
   const posts = getSortedPostsData();
   const postUrls = posts.map((post) => ({
     url: `${URL}/blog/${post.slug}`,
@@ -39,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${URL}/stories`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.8 },
     { url: `${URL}/privacy`, lastModified: new Date(), changeFrequency: 'yearly' as const, priority: 0.2 },
     { url: `${URL}/terms`, lastModified: new Date(), changeFrequency: 'yearly' as const, priority: 0.2 },
+    { url: `${URL}/submit`, lastModified: new Date(), changeFrequency: 'yearly' as const, priority: 0.4 },
   ];
 
   return [
