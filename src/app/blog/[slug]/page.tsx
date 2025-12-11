@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
-import { CommentSection } from '@/components/shared/comment-section';
+import { GiscusComments } from '@/components/shared/giscus-comments';
 import { getPostData, getSortedPostsData } from '@/lib/posts';
 import { NewsletterBanner } from '@/components/layout/newsletter-banner';
 import type { Metadata } from 'next';
@@ -86,7 +86,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             <NewsletterBanner />
           </div>
 
-          <CommentSection articleId={post.id} />
+          <GiscusComments />
         </article>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { CommentSection } from '@/components/shared/comment-section';
+import { GiscusComments } from '@/components/shared/giscus-comments';
 import { getStoryData, getSortedStoriesData } from '@/lib/posts';
 import { NewsletterBanner } from '@/components/layout/newsletter-banner';
 import type { Metadata } from 'next';
@@ -96,7 +96,7 @@ export default async function StoryPage({ params }: { params: { slug: string } }
             <NewsletterBanner />
           </div>
 
-          <CommentSection articleId={`story-${story.id}`} />
+          <GiscusComments />
         </article>
       </div>
     </div>
