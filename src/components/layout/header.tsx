@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Menu, User } from "lucide-react"
+import { Menu, User, LogIn } from "lucide-react"
 import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
@@ -92,7 +92,7 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            <Button asChild>
+            <Button asChild className="hidden md:inline-flex">
               <Link href="/login">Login</Link>
             </Button>
           )}
@@ -105,26 +105,38 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left">
-              <nav className="grid gap-6 text-lg font-medium">
-                <Link
-                  href="/"
-                  className="flex items-center gap-2 text-lg font-semibold"
-                >
-                  <span className="font-headline text-xl font-bold">HustlersPo!nt</span>
-                </Link>
-                {navItems.map((item) => (
+              <div className="flex flex-col h-full">
+                <nav className="grid gap-6 text-lg font-medium">
                   <Link
-                    key={item.label}
-                    href={item.href}
-                    className={cn(
-                      "transition-colors hover:text-foreground",
-                       pathname.startsWith(item.href) ? "text-foreground" : "text-muted-foreground"
-                    )}
+                    href="/"
+                    className="flex items-center gap-2 text-lg font-semibold"
                   >
-                    {item.label}
+                    <span className="font-headline text-xl font-bold">HustlersPo!nt</span>
                   </Link>
-                ))}
-              </nav>
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className={cn(
+                        "transition-colors hover:text-foreground",
+                        pathname.startsWith(item.href) ? "text-foreground" : "text-muted-foreground"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+                <div className="mt-auto">
+                    {!user && (
+                      <Button asChild className="w-full">
+                        <Link href="/login">
+                          <LogIn className="mr-2 h-5 w-5" />
+                          Login
+                        </Link>
+                      </Button>
+                    )}
+                </div>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
