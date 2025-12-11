@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, Lightbulb, BookOpen } from 'lucide-react';
+import { Users, Lightbulb, BookOpen, UserCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -65,6 +67,24 @@ export default function AboutPage() {
                     </Card>
                 ))}
             </div>
+        </div>
+
+        <div className="mt-16 text-center">
+            <h2 className="font-headline text-3xl font-bold md:text-4xl">About the Creator</h2>
+            <Card className="mt-8 max-w-md mx-auto">
+                <CardContent className="p-6">
+                    <UserCircle className="h-16 w-16 mx-auto text-muted-foreground" />
+                    <h3 className="mt-4 text-xl font-bold">Neeraj Thammali</h3>
+                    <p className="mt-2 text-muted-foreground">
+                        This platform was built by Neeraj Thammali. Check out more of my work on my portfolio.
+                    </p>
+                    <Button asChild className="mt-6">
+                        <Link href="https://neerajthammmali.vercel.app/" target="_blank" rel="noopener noreferrer">
+                            View Portfolio
+                        </Link>
+                    </Button>
+                </CardContent>
+            </Card>
         </div>
 
       </div>
