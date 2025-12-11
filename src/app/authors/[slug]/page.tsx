@@ -88,7 +88,7 @@ export default function AuthorPage({ params }: { params: { slug: string } }) {
                   alt={post.title}
                   width={600}
                   height={400}
-                  className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="aspect-[16/9] w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   data-ai-hint={post.imageHint}
                 />
               </Link>
