@@ -1,4 +1,5 @@
 
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, BookOpen, Lightbulb, Users, CalendarDays, Book, UserCircle, Tag } from 'lucide-react';
@@ -98,19 +99,20 @@ export default function Home() {
       </section>
       
       {/* Stats Section */}
-      <section className="border-b border-t">
-        <div className="container mx-auto px-4">
-            <div className="flex overflow-x-auto py-2 md:grid md:grid-cols-3 md:divide-x md:py-0">
-                {stats.map((stat, index) => (
-                <div key={stat.label} className="flex min-w-[200px] flex-1 items-center justify-center gap-4 p-6 transition-colors hover:bg-muted/50 md:min-w-0">
-                    <stat.Icon className="h-10 w-10 text-primary" />
-                    <div>
-                        <p className="text-3xl font-bold">{stat.value}</p>
-                        <p className="text-muted-foreground">{stat.label}</p>
-                    </div>
-                </div>
-                ))}
-            </div>
+      <section className="w-full border-b border-t py-6">
+        <div
+          className="group relative w-full overflow-hidden whitespace-nowrap [mask-image:_linear-gradient(to_right,_transparent_0,_black_128px,_black_calc(100%-128px),_transparent_100%)]">
+          <div className="inline-block animate-scroll group-hover:[animation-play-state:paused]">
+              {[...stats, ...stats].map((stat, index) => (
+                  <div key={index} className="inline-flex min-w-[200px] flex-1 items-center justify-center gap-4 p-6 transition-colors hover:bg-muted/50 md:min-w-0">
+                      <stat.Icon className="h-10 w-10 text-primary" />
+                      <div>
+                          <p className="text-3xl font-bold">{stat.value}</p>
+                          <p className="text-muted-foreground">{stat.label}</p>
+                      </div>
+                  </div>
+              ))}
+          </div>
         </div>
       </section>
 
