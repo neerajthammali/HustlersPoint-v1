@@ -79,10 +79,10 @@ export default function Home() {
         </div>
         <div className="container relative z-10 mx-auto px-4">
           <h1 className="font-headline text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-            Built for the <span className="text-primary">Next-Gen Hustler.</span>
+            Grow Daily. <span className="text-primary">Hustle Wisely.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Learn fast. Grow faster.
+            Better decisions through stories, research, and clarity.
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Button asChild size="lg" className="group">
