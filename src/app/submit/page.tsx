@@ -25,7 +25,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import type { Metadata } from 'next';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -44,6 +43,9 @@ const formSchema = z.object({
     message: 'Content must be at least 20 characters.',
   }),
 });
+
+// Note: No metadata export here since this is a Client Component.
+// Metadata should be handled in a parent Server Component or layout if needed.
 
 export default function SubmitPage() {
   const { toast } = useToast();

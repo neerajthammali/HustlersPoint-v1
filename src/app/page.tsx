@@ -1,8 +1,6 @@
-
-
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, BookOpen, Lightbulb, Users, CalendarDays, Book, UserCircle, Tag, Share2, Sparkles } from 'lucide-react';
+import { ArrowRight, BookOpen, Lightbulb, Users, CalendarDays, UserCircle, Share2, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -17,6 +15,7 @@ import { getSortedPostsData, getSortedStoriesData } from '@/lib/posts';
 import { serviceProfiles } from '@/lib/placeholder-data';
 import { Badge } from '@/components/ui/badge';
 import { storyIconMapper } from '@/lib/icon-mappers/story-icon-mapper';
+import { CategoryIcon } from '@/components/shared/category-icon';
 
 
 const stats = [
@@ -55,20 +54,6 @@ const testimonials = [
 export default function Home() {
   const blogPosts = getSortedPostsData().slice(0, 3);
   const hustlerStories = getSortedStoriesData().slice(0, 3);
-
-  const CategoryIcon = ({ category }: { category: string }) => {
-    switch (category.toLowerCase()) {
-      case 'research':
-        return <Book className="mr-1 h-3 w-3" />;
-      case 'productivity':
-        return <Tag className="mr-1 h-3 w-3" />;
-      case 'growth':
-        return <Tag className="mr-1 h-3 w-3" />;
-      default:
-        return <Tag className="mr-1 h-3 w-3" />;
-    }
-  };
-
 
   return (
     <div className="flex flex-col">

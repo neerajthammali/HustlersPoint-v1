@@ -4,7 +4,6 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import type { Story as StoryType } from './placeholder-data';
-import { storyIconMapper } from './icon-mappers/story-icon-mapper';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 const storiesDirectory = path.join(process.cwd(), 'content/stories');
@@ -39,9 +38,9 @@ export function getSortedPostsData(): Post[] {
     const matterResult = matter(fileContents);
 
     return {
+      id: slug,
       slug,
       ...(matterResult.data as Omit<Post, 'id' | 'slug'>),
-      id: slug,
     };
   });
 
@@ -64,10 +63,10 @@ export async function getPostData(slug: string): Promise<Post> {
   const contentHtml = processedContent.toString();
 
   return {
+    id: slug,
     slug,
     contentHtml,
     ...(matterResult.data as Omit<Post, 'id' | 'slug' | 'contentHtml'>),
-    id: slug,
   };
 }
 
@@ -80,16 +79,14 @@ export function getSortedStoriesData(): Story[] {
       const matterResult = matter(fileContents);
   
       return {
-        slug,
         id: slug,
+        slug,
         ...matterResult.data,
       } as Story;
     });
   
-    return allStoriesData.sort((a, b) => {
-        // You might want to sort stories by a date or another field
-        return a.title > b.title ? 1 : -1;
-      });
+    // Sorting by title as a default
+    return allStoriesData.sort((a, b) => a.title.localeCompare(b.title));
   }
   
   export async function getStoryData(slug: string): Promise<Story> {
@@ -103,15 +100,14 @@ export function getSortedStoriesData(): Story[] {
     const contentHtml = processedContent.toString();
   
     return {
+      id: slug,
       slug,
       contentHtml,
       ...matterResult.data,
-      id: slug,
     } as Story;
   }
 
-  export function getPostsByAuthor(authorSlug: string) {
+  export function getPostsByAuthor(authorSlug: string): Post[] {
     const allPosts = getSortedPostsData();
     return allPosts.filter(post => post.authorSlug === authorSlug);
   }
-  

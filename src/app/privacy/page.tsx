@@ -1,19 +1,19 @@
-'use client';
 import type { Metadata } from 'next';
-import { useState, useEffect } from 'react';
 
-// export const metadata: Metadata = { // Metadata must be defined in a server component
-//   title: 'Privacy Policy',
-//   description: 'Learn how HustlersPo!nt handles your data and respects your privacy.',
-// };
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Learn how HustlersPo!nt handles your data and respects your privacy.',
+};
+
+// This is a server component, so we can't use hooks.
+// The date will be generated at build time.
+const lastUpdated = new Date().toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
 
 export default function PrivacyPage() {
-  const [lastUpdated, setLastUpdated] = useState('');
-
-  useEffect(() => {
-    setLastUpdated(new Date().toLocaleDateString());
-  }, []);
-
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">

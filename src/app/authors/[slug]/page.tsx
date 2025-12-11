@@ -5,9 +5,10 @@ import { getSortedAuthorsData, getAuthorData } from '@/lib/authors';
 import { getPostsByAuthor } from '@/lib/posts';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { CalendarDays, Book, UserCircle, Tag } from 'lucide-react';
+import { CalendarDays, UserCircle } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import type { Metadata } from 'next';
+import { CategoryIcon } from '@/components/shared/category-icon';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const author = getAuthorData(params.slug);
@@ -30,19 +31,6 @@ export async function generateStaticParams() {
     slug: author.slug,
   }));
 }
-
-const CategoryIcon = ({ category }: { category: string }) => {
-    switch (category.toLowerCase()) {
-        case 'research':
-        return <Book className="mr-1 h-3 w-3" />;
-        case 'productivity':
-        return <Tag className="mr-1 h-3 w-3" />;
-        case 'growth':
-        return <Tag className="mr-1 h-3 w-3" />;
-        default:
-        return <Tag className="mr-1 h-3 w-3" />;
-    }
-};
 
 export default function AuthorPage({ params }: { params: { slug: string } }) {
   const author = getAuthorData(params.slug);

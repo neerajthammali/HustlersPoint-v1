@@ -5,10 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { CalendarDays, Book, UserCircle, Tag, Search } from 'lucide-react';
+import { CalendarDays, UserCircle, Search } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Input } from '@/components/ui/input';
 import type { Post } from '@/lib/posts';
+import { CategoryIcon } from '@/components/shared/category-icon';
 
 export default function BlogClientPage({ allPosts }: { allPosts: Post[] }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -25,19 +26,6 @@ export default function BlogClientPage({ allPosts }: { allPosts: Post[] }) {
         post.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [allPosts, searchTerm]);
-
-  const CategoryIcon = ({ category }: { category: string }) => {
-    switch (category.toLowerCase()) {
-      case 'research':
-        return <Book className="mr-1 h-3 w-3" />;
-      case 'productivity':
-        return <Tag className="mr-1 h-3 w-3" />;
-      case 'growth':
-        return <Tag className="mr-1 h-3 w-3" />;
-      default:
-        return <Tag className="mr-1 h-3 w-3" />;
-    }
-  };
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
@@ -69,7 +57,7 @@ export default function BlogClientPage({ allPosts }: { allPosts: Post[] }) {
           {filteredPosts.map((post) => (
             <Card
               key={post.id}
-              className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="group flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
                 <Image
