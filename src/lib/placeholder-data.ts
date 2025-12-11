@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { BookOpen, Newspaper, Users, Briefcase, Sparkles, Linkedin, Rss, Bot } from 'lucide-react';
+import { BookOpen, Newspaper, Users, Briefcase, Sparkles } from 'lucide-react';
 import { PlaceHolderImages } from './placeholder-images';
 
 export type Feature = {
@@ -47,7 +47,6 @@ export type Story = {
   id: string;
   title: string;
   source: 'LinkedIn' | 'Reddit' | 'Product Hunt';
-  sourceIcon: LucideIcon;
   excerpt: string;
   author: string;
   imageUrl: string;
@@ -59,7 +58,6 @@ export type Story = {
       id: 'from-0-to-10k-mrr',
       title: 'From 0 to $10k MRR in 6 Months with a Simple SaaS',
       source: 'LinkedIn',
-      sourceIcon: Linkedin,
       excerpt: 'How I bootstrapped my way to profitability by solving a niche problem I faced myself...',
       author: 'Sarah Chen',
       imageUrl: PlaceHolderImages.find(p => p.id === 'story1')?.imageUrl || '/images/story1.jpg',
@@ -69,7 +67,6 @@ export type Story = {
       id: 'i-quit-my-faang-job',
       title: 'I quit my FAANG job to build an indie game. Best decision ever.',
       source: 'Reddit',
-      sourceIcon: Bot,
       excerpt: 'The journey was tough, filled with doubt, but the freedom and fulfillment are unparalleled.',
       author: 'u/dev_dreamer',
       imageUrl: PlaceHolderImages.find(p => p.id === 'story2')?.imageUrl || '/images/story2.jpg',
@@ -79,7 +76,6 @@ export type Story = {
       id: 'launched-on-product-hunt',
       title: 'Launched on Product Hunt and Hit #1 Product of the Day!',
       source: 'Product Hunt',
-      sourceIcon: Rss,
       excerpt: 'Our launch strategy, the mistakes we made, and what we learned from the experience.',
       author: 'Maker Team',
       imageUrl: PlaceHolderImages.find(p => p.id === 'story3')?.imageUrl || '/images/story3.jpg',

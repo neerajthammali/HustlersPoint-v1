@@ -6,6 +6,7 @@ import { CommentSection } from '@/components/shared/comment-section';
 import { getStoryData, getSortedStoriesData } from '@/lib/posts';
 import { NewsletterBanner } from '@/components/layout/newsletter-banner';
 import type { Metadata } from 'next';
+import { storyIconMapper } from '@/lib/icon-mappers/story-icon-mapper';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const story = await getStoryData(params.slug);
@@ -49,6 +50,7 @@ export default async function StoryPage({ params }: { params: { slug: string } }
   if (!story) {
     notFound();
   }
+  const Icon = storyIconMapper(story.source);
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
@@ -56,7 +58,7 @@ export default async function StoryPage({ params }: { params: { slug: string } }
         <article>
           <div className="space-y-4 text-center">
             <div className="flex items-center justify-center gap-2 text-muted-foreground">
-              <story.sourceIcon className="h-5 w-5" />
+              <Icon className="h-5 w-5" />
               <span>{story.source}</span>
             </div>
             <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl">

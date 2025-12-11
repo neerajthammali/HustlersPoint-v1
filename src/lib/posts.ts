@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
-import type { Story } from './placeholder-data';
+import type { Story as StoryType } from './placeholder-data';
 import { storyIconMapper } from './icon-mappers/story-icon-mapper';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
@@ -22,6 +22,11 @@ export type Post = {
   imageUrl: string;
   imageHint: string;
   contentHtml?: string;
+};
+
+export type Story = StoryType & {
+    slug: string;
+    contentHtml?: string;
 };
 
 
@@ -66,23 +71,19 @@ export async function getPostData(slug: string): Promise<Post> {
   };
 }
 
-type AllStoriesData = (Story & { slug: string })[];
-
-export function getSortedStoriesData(): AllStoriesData {
+export function getSortedStoriesData(): Story[] {
     const fileNames = fs.readdirSync(storiesDirectory);
     const allStoriesData = fileNames.map((fileName) => {
       const slug = fileName.replace(/\.md$/, '');
       const fullPath = path.join(storiesDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const matterResult = matter(fileContents);
-      const source = matterResult.data.source as Story['source'];
   
       return {
         slug,
-        ...matterResult.data,
-        sourceIcon: storyIconMapper(source),
         id: slug,
-      } as Story & { slug: string };
+        ...matterResult.data,
+      } as Story;
     });
   
     return allStoriesData.sort((a, b) => {
@@ -91,7 +92,7 @@ export function getSortedStoriesData(): AllStoriesData {
       });
   }
   
-  export async function getStoryData(slug: string) {
+  export async function getStoryData(slug: string): Promise<Story> {
     const fullPath = path.join(storiesDirectory, `${slug}.md`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
@@ -101,15 +102,12 @@ export function getSortedStoriesData(): AllStoriesData {
       .process(matterResult.content);
     const contentHtml = processedContent.toString();
   
-    const source = matterResult.data.source as Story['source'];
-  
     return {
       slug,
       contentHtml,
       ...matterResult.data,
       id: slug,
-      sourceIcon: storyIconMapper(source),
-    } as Omit<Story, 'id'> & { id: string, slug: string, contentHtml: string };
+    } as Story;
   }
 
   export function getPostsByAuthor(authorSlug: string) {
