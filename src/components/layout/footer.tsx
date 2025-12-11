@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Dribbble, Github, Instagram, Twitter } from "lucide-react"
+import { Github } from "lucide-react"
 
 const footerNav = [
     {
@@ -22,10 +22,7 @@ const footerNav = [
 ]
 
 const socialLinks = [
-    { Icon: Twitter, href: "#", label: "Twitter" },
-    { Icon: Instagram, href: "#", label: "Instagram" },
-    { Icon: Dribbble, href: "#", label: "Dribbble" },
-    { Icon: Github, href: "#", label: "Github" },
+    { Icon: Github, href: "https://github.com/neerajthammali", label: "Github" },
 ]
 
 
@@ -54,7 +51,7 @@ export function Footer() {
                  <h3 className="font-semibold text-foreground">Connect</h3>
                  <div className="mt-4 flex space-x-4">
                     {socialLinks.map(({Icon, href, label}) => (
-                         <Link key={label} href={href} className="text-muted-foreground hover:text-foreground" aria-label={label}>
+                         <Link key={label} href={href} className="text-muted-foreground hover:text-foreground" aria-label={label} target="_blank" rel="noopener noreferrer">
                             <Icon className="h-5 w-5" />
                         </Link>
                     ))}
@@ -62,7 +59,10 @@ export function Footer() {
             </div>
         </div>
         <div className="mt-8 border-t pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} HustlersPo!nt. All rights reserved.</p>
+          <p>
+            Built by <a href="https://neerajthammmali.vercel.app/" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-foreground">Neeraj Thammali</a>.
+            © {new Date().getFullYear()} All rights reserved.
+          </p>
           <div className="flex gap-4 mt-4 md:mt-0">
              <Link href="/privacy" className="hover:text-foreground">Privacy Policy</Link>
              <Link href="/terms" className="hover:text-foreground">Terms of Service</Link>

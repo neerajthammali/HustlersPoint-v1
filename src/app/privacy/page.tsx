@@ -45,7 +45,7 @@ export default function PrivacyPage() {
         <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
 
         <h2>Contact Us</h2>
-        <p>If you have any questions about our Privacy Policy, please <a href="/contact">contact us</a>.</p>
+        <p>If you have any questions about our Privacy Policy, please <a href="mailto:neerajtammali2020@gmail.com">contact us</a>.</p>
       </div>
     </div>
   );

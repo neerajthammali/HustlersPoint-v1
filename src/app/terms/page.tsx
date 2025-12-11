@@ -41,7 +41,7 @@ export default function TermsPage() {
         <p>HustlersPo!nt is not liable for any damages that may occur to you as a result of your misuse of our website. HustlersPo!nt reserves the right to edit, modify, and change this Agreement at any time. We shall let our users know of these changes through electronic mail. This Agreement is an understanding between HustlersPo!nt and the user, and this supersedes and replaces all prior agreements regarding the use of this website.</p>
         
         <h2>Contact Us</h2>
-        <p>If you have any questions about our Terms of Service, please <a href="/contact">contact us</a>.</p>
+        <p>If you have any questions about our Terms of Service, please <a href="mailto:neerajtammali2020@gmail.com">contact us</a>.</p>
       </div>
     </div>
   );
