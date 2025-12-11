@@ -285,7 +285,7 @@ export default function Home() {
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             {testimonials.map((testimonial) => (
               <Card key={testimonial.author} className="border-border bg-card p-6 shadow-sm">
-                <CardContent className="p-0">
+                <CardContent>
                   <blockquote className="text-base italic text-foreground">
                     "{testimonial.quote}"
                   </blockquote>

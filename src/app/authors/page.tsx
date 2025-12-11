@@ -5,17 +5,17 @@ import { getSortedAuthorsData } from '@/lib/authors';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Writers',
+  title: 'Authors',
   description: 'Meet the talented writers and creators behind HustlersPo!nt.',
 };
 
-export default function WritersPage() {
+export default function AuthorsPage() {
   const authors = getSortedAuthorsData();
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <div className="text-center">
-        <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl">Our Writers</h1>
+        <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl">Our Authors</h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
           Meet the talented writers, founders, and creators sharing their insights on HustlersPo!nt.
         </p>

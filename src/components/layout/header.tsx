@@ -23,7 +23,7 @@ const navItems = [
   { href: "/blog", label: "Articles" },
   { href: "/stories", label: "Stories" },
   { href: "/services", label: "Services" },
-  { href: "/writers", label: "Writers" },
+  { href: "/authors", label: "Writers" },
   { href: "/community", label: "Community" },
   { href: "/news", label: "News" },
 ]
