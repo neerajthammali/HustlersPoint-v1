@@ -23,7 +23,7 @@ const stats = [
   { value: '12K+', label: 'Impressions', Icon: Lightbulb },
   { value: '12+', label: 'Blogs', Icon: BookOpen },
   { value: '2K+', label: 'Subscribers', Icon: Users },
-  { value: '2.9m+', label: 'Social Reach', Icon: Share2 },
+  { value: '2.9M', label: 'Social Reach', Icon: Share2 },
   { value: '10+', label: 'Hustler Stories', Icon: Sparkles },
 ];
 
