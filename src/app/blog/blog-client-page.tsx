@@ -65,7 +65,7 @@ export default function BlogClientPage({ allPosts }: { allPosts: Post[] }) {
       </div>
 
       {filteredPosts.length > 0 ? (
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 gap-4">
           {filteredPosts.map((post) => (
             <Card
               key={post.id}
