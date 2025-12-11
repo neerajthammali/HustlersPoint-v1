@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/profile/'],
     },
-    sitemap: 'https://hustlerspoint.com/sitemap.xml', // Replace with your actual domain
+    sitemap: 'https://neerajthammmali.vercel.app/sitemap.xml',
   };
 }

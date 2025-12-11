@@ -23,7 +23,7 @@ const poppins = Poppins({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hustlerspoint.com'), // Replace with your actual domain
+  metadataBase: new URL('https://neerajthammmali.vercel.app'),
   title: {
     default: 'HustlersPo!nt - Publish Your Ideas. Build Your Future.',
     template: '%s | HustlersPo!nt',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     description: 'A creator platform for writers, founders, and learners to share powerful insights and grow an audience.',
     type: 'website',
     locale: 'en_US',
-    url: 'https://hustlerspoint.com', // Replace with your actual domain
+    url: 'https://neerajthammmali.vercel.app',
     siteName: 'HustlersPo!nt',
   },
 };

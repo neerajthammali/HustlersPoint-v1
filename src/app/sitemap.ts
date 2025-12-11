@@ -1,7 +1,7 @@
 import { getSortedPostsData, getSortedStoriesData } from '@/lib/posts';
 import { getSortedAuthorsData } from '@/lib/authors';
 
-const URL = 'https://hustlerspoint.com'; // Replace with your actual domain
+const URL = 'https://neerajthammmali.vercel.app';
 
 export default function sitemap() {
   const posts = getSortedPostsData();
