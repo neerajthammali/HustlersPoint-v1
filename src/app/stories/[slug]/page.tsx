@@ -2,12 +2,12 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { GiscusComments } from '@/components/shared/giscus-comments';
 import { getStoryData, getSortedStoriesData } from '@/lib/posts';
 import { NewsletterBanner } from '@/components/layout/newsletter-banner';
 import type { Metadata } from 'next';
 import { storyIconMapper } from '@/lib/icon-mappers/story-icon-mapper';
 import { ShareButtons } from '@/components/shared/share-buttons';
+import { CommentSection } from '@/components/shared/comment-section';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const story = await getStoryData(params.slug);
@@ -110,7 +110,7 @@ export default async function StoryPage({ params }: { params: { slug: string } }
             <NewsletterBanner />
           </div>
 
-          <GiscusComments />
+          <CommentSection />
         </article>
       </div>
     </div>

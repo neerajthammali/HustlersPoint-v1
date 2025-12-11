@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
-import { GiscusComments } from '@/components/shared/giscus-comments';
 import { getPostData, getSortedPostsData } from '@/lib/posts';
 import { NewsletterBanner } from '@/components/layout/newsletter-banner';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ShareButtons } from '@/components/shared/share-buttons';
+import { CommentSection } from '@/components/shared/comment-section';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = await getPostData(params.slug);
@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             <NewsletterBanner />
           </div>
 
-          <GiscusComments />
+          <CommentSection />
         </article>
       </div>
     </div>
