@@ -18,7 +18,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         body: ['var(--font-montserrat)', 'sans-serif'],
-        headline: ['var(--font-space-grotesk)', 'sans-serif'],
+        headline: ['var(--font-poppins)', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
