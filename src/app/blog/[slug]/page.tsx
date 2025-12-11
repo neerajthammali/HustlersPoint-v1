@@ -6,6 +6,7 @@ import { getPostData, getSortedPostsData } from '@/lib/posts';
 import { NewsletterBanner } from '@/components/layout/newsletter-banner';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ShareButtons } from '@/components/shared/share-buttons';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = await getPostData(params.slug);
@@ -17,12 +18,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
+  const fullUrl = `/blog/${post.slug}`;
+
   return {
     title: post.title,
     description: post.excerpt,
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      url: fullUrl,
       images: [
         {
           url: post.imageUrl,
@@ -31,6 +35,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
           alt: post.title,
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [post.imageUrl],
     },
   };
 }
@@ -63,6 +73,10 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               <span>•</span>
               <span>{post.date}</span>
             </div>
+          </div>
+          
+          <div className="my-8 flex justify-center">
+              <ShareButtons title={post.title} />
           </div>
 
           <div className="my-8">

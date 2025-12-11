@@ -7,6 +7,7 @@ import { getStoryData, getSortedStoriesData } from '@/lib/posts';
 import { NewsletterBanner } from '@/components/layout/newsletter-banner';
 import type { Metadata } from 'next';
 import { storyIconMapper } from '@/lib/icon-mappers/story-icon-mapper';
+import { ShareButtons } from '@/components/shared/share-buttons';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const story = await getStoryData(params.slug);
@@ -17,6 +18,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description: 'The story you are looking for does not exist.',
     };
   }
+  
+  const fullUrl = `/stories/${story.slug}`;
 
   return {
     title: story.title,
@@ -24,6 +27,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     openGraph: {
       title: story.title,
       description: story.excerpt,
+      url: fullUrl,
       images: [
         {
           url: story.imageUrl,
@@ -33,6 +37,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         },
       ],
     },
+    twitter: {
+        card: 'summary_large_image',
+        title: story.title,
+        description: story.excerpt,
+        images: [story.imageUrl],
+      },
   };
 }
 
@@ -67,6 +77,10 @@ export default async function StoryPage({ params }: { params: { slug: string } }
             <div className="text-muted-foreground">
               By {story.author}
             </div>
+          </div>
+
+          <div className="my-8 flex justify-center">
+              <ShareButtons title={story.title} />
           </div>
 
           <div className="my-8">
