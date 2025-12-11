@@ -18,6 +18,7 @@ const footerNav = [
             { label: "Contact", href: "/contact" },
             { label: "Community", href: "/community" },
             { label: "News", href: "/news" },
+            { label: "Submit", href: "/submit" },
         ]
     }
 ]

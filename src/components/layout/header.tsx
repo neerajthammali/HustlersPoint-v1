@@ -26,7 +26,6 @@ const navItems = [
   { href: "/writers", label: "Writers" },
   { href: "/community", label: "Community" },
   { href: "/news", label: "News" },
-  { href: "/submit", label: "Submit" },
 ]
 
 export function Header() {
