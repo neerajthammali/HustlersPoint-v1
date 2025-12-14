@@ -60,7 +60,7 @@ export type Story = {
       source: 'LinkedIn',
       excerpt: 'How I bootstrapped my way to profitability by solving a niche problem I faced myself...',
       author: 'Sarah Chen',
-      imageUrl: PlaceHolderImages.find(p => p.id === 'story1')?.imageUrl || 'https://images.unsplash.com/photo-1590870102494-ab6ed490f869?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      imageUrl: PlaceHolderImages.find(p => p.id === 'story1')?.imageUrl || '/images/story1.jpg',
       imageHint: PlaceHolderImages.find(p => p.id === 'story1')?.imageHint || 'person laptop'
     },
     {
@@ -69,7 +69,7 @@ export type Story = {
       source: 'Reddit',
       excerpt: 'The journey was tough, filled with doubt, but the freedom and fulfillment are unparalleled.',
       author: 'u/dev_dreamer',
-      imageUrl: PlaceHolderImages.find(p => p.id === 'story2')?.imageUrl || 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      imageUrl: PlaceHolderImages.find(p => p.id === 'story2')?.imageUrl || '/images/story2.jpg',
       imageHint: PlaceHolderImages.find(p => p.id === 'story2')?.imageHint || 'game development'
     },
     {
@@ -78,7 +78,7 @@ export type Story = {
       source: 'Product Hunt',
       excerpt: 'Our launch strategy, the mistakes we made, and what we learned from the experience.',
       author: 'Maker Team',
-      imageUrl: PlaceHolderImages.find(p => p.id === 'story3')?.imageUrl || 'https://images.unsplash.com/photo-1622258416260-cc79f4763be4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      imageUrl: PlaceHolderImages.find(p => p.id === 'story3')?.imageUrl || '/images/story3.jpg',
       imageHint: PlaceHolderImages.find(p => p.id === 'story3')?.imageHint || 'startup launch'
     },
   ];
@@ -98,7 +98,7 @@ export const trendingNews: NewsArticle[] = [
     title: 'New AI Model Achieves Human-Level Performance in Code Generation',
     source: 'TechCrunch',
     date: '2 hours ago',
-    imageUrl: PlaceHolderImages.find(p => p.id === 'news1')?.imageUrl || 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    imageUrl: PlaceHolderImages.find(p => p.id === 'news1')?.imageUrl || '/images/news1.jpg',
     imageHint: PlaceHolderImages.find(p => p.id === 'news1')?.imageHint || 'abstract code',
   },
   {
@@ -106,7 +106,7 @@ export const trendingNews: NewsArticle[] = [
     title: 'The Rise of the "Creator Economy" and What It Means for The Future of Work',
     source: 'Forbes',
     date: '5 hours ago',
-    imageUrl: PlaceHolderImages.find(p => p.id === 'news2')?.imageUrl || 'https://images.unsplash.com/photo-1668606143326-4d53db523e00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    imageUrl: PlaceHolderImages.find(p => p.id === 'news2')?.imageUrl || '/images/news2.jpg',
     imageHint: PlaceHolderImages.find(p => p.id === 'news2')?.imageHint || 'person podcasting',
   },
   {
@@ -114,7 +114,7 @@ export const trendingNews: NewsArticle[] = [
     title: 'Venture Capital Funding Sees a Shift Towards Sustainable Tech',
     source: 'Bloomberg',
     date: '1 day ago',
-    imageUrl: PlaceHolderImages.find(p => p.id === 'news3')?.imageUrl || 'https://images.unsplash.com/photo-1587168173357-99c7e95fb5cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    imageUrl: PlaceHolderImages.find(p => p.id === 'news3')?.imageUrl || '/images/news3.jpg',
     imageHint: PlaceHolderImages.find(p => p.id === 'news3')?.imageHint || 'wind turbines',
   },
 ];
