@@ -12,7 +12,7 @@ image_id: "jamnagar-banner"
 read_time: "7 min read"
 status: "published"
 language: "en"
-thumbnail: "/images/jamnagar.jpg"
+thumbnail: "/images/jamnagar (1).jpg"
 featured: true
 ---
 

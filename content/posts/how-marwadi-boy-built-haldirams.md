@@ -12,7 +12,7 @@ image_id: "haldiram-banner"
 read_time: "6 min read"
 status: "published"
 language: "en"
-thumbnail: "/images/haldiram.png"
+thumbnail: "/images/haldiram (1).png"
 featured: true
 ---
 

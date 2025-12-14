@@ -12,7 +12,7 @@ image_id: "stable-money-banner"
 read_time: "6 min read"
 status: "published"
 language: "en"
-thumbnail: "/images/stablemoney.jpg"
+thumbnail: "/images/stablemoney (1).png"
 featured: true
 ---
 

@@ -12,7 +12,7 @@ image_id: "whole-truth-banner"
 read_time: "6 min read"
 status: "published"
 language: "en"
-thumbnail: "/images/thewholetruth.jpg"
+thumbnail: "/images/whole-truth (1).png"
 featured: true
 ---
 

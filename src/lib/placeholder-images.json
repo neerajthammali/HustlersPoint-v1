@@ -39,8 +39,8 @@
     {
       "id": "profile1",
       "description": "Portrait of a female designer.",
-      "imageUrl": "https://images.unsplash.com/photo-1654512541758-123544b9dc70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZGVzaWduZXIlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjUzNDE3MzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "designer portrait"
+      "imageUrl": "/images/neerajthammali (1).jpg",
+      "imageHint": "community founder portrait"
     },
     {
       "id": "profile2",
