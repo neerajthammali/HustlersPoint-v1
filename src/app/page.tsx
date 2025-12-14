@@ -29,7 +29,7 @@ const stats = [
 const testimonials = [
   {
     quote: "Hustler's Point is my go-to for no-fluff, actionable advice. The case studies on startup growth have been a game-changer for my own venture.",
-    author: 'Alex Johnson',
+    author: 'Neeraj Thammali',
     role: 'SaaS Founder',
     imageUrl: 'https://picsum.photos/seed/alex/48/48',
     imageHint: 'man portrait',

@@ -1,9 +1,9 @@
 ---
 title: 'Side Hustles That Pay: From Passion to Profit'
-author: 'Alex Johnson'
-authorSlug: 'alex-johnson'
-authorBio: 'Alex is a serial entrepreneur and author who loves sharing practical advice for starting and growing a business.'
-category: 'Growth'
+author: 'Neeraj Thammali'
+authorSlug: 'neeraj-thammali'
+authorBio: 'I run HustlersPoint, where I share curated stories, trends, and practical resources for builders, students, and hustlers.'
+category: 'Growth' 
 date: '2023-10-08'
 excerpt: 'Turn your hobbies and skills into a profitable side business with these proven ideas.'
 imageUrl: '/images/blog3.jpg'

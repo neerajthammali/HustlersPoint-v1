@@ -1,9 +1,9 @@
 ---
 title: 'Decoding Gen Z: What Motivates the Next Generation of Workers'
-author: 'John Smith'
-authorSlug: 'john-smith'
-authorBio: 'John is a market researcher and sociologist specializing in generational trends and workplace dynamics.'
-category: 'Research'
+author: 'Neeraj Thammali'
+authorSlug: 'neeraj-thammali'
+authorBio: 'I run HustlersPoint, where I share curated stories, trends, and practical resources for builders, students, and hustlers.'
+category: 'Research' 
 date: '2023-10-10'
 excerpt: 'An in-depth look into the values, aspirations, and work ethics of Gen Z.'
 imageUrl: '/images/blog2.jpg'
