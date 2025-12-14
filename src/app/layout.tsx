@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat, Poppins } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
@@ -68,6 +69,7 @@ export default function RootLayout({
             <Toaster />
           </FirebaseClientProvider>
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
